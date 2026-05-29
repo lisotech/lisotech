@@ -1,443 +1,639 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LISOTECH INNOVATIONS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Lisotech Innovations</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
     }
 
-    body {
-      background: #020817;
-      color: white;
-      overflow-x: hidden;
+    body{
+      background:#020817;
+      color:white;
+      overflow-x:hidden;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html{
+      scroll-behavior:smooth;
     }
 
-    :root {
-      --primary: #0066ff;
-      --secondary: #0f172a;
-      --card: #0b1220;
-      --text: #e2e8f0;
-      --light: #1e293b;
+    /* HEADER */
+
+    header{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:#020817;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 8%;
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.1);
     }
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(2, 8, 23, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+    .logo-container{
+      display:flex;
+      align-items:center;
     }
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 8%;
+    .logo-img{
+      width:220px;
+      height:auto;
     }
 
-    .logo {
-      font-size: 28px;
-      font-weight: 700;
-      color: white;
+    nav{
+      display:flex;
+      align-items:center;
     }
 
-    .logo span {
-      color: var(--primary);
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:25px;
+      font-weight:bold;
+      transition:0.3s;
     }
 
-    nav ul {
-      display: flex;
-      gap: 25px;
-      list-style: none;
+    nav a:hover{
+      color:#0066ff;
     }
 
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      transition: 0.3s;
-      font-size: 15px;
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:140px 8% 50px;
+
+      background:
+      linear-gradient(
+        rgba(2,8,23,0.92),
+        rgba(2,8,23,0.92)
+      ),
+      url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
+
+      background-size:cover;
+      background-position:center;
     }
 
-    nav ul li a:hover {
-      color: var(--primary);
+    .hero-content{
+      max-width:750px;
     }
 
-    .btn {
-      background: var(--primary);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-block;
-      transition: 0.3s;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
+    .hero h1{
+      font-size:65px;
+      margin-bottom:25px;
+      line-height:1.2;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0,102,255,0.4);
+    .hero h1 span{
+      color:#0066ff;
     }
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 8% 50px;
-      background: linear-gradient(to right, rgba(2,8,23,0.95), rgba(2,8,23,0.8)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
+    .hero p{
+      color:#cbd5e1;
+      font-size:18px;
+      line-height:1.8;
+      margin-bottom:35px;
     }
 
-    .hero-content {
-      max-width: 700px;
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
     }
 
-    .hero h1 {
-      font-size: 70px;
-      line-height: 1.1;
-      margin-bottom: 20px;
+    .btn{
+      display:inline-block;
+      padding:15px 30px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
     }
 
-    .hero h1 span {
-      color: var(--primary);
+    .primary-btn{
+      background:#0066ff;
+      color:white;
     }
 
-    .hero p {
-      color: #cbd5e1;
-      line-height: 1.8;
-      margin-bottom: 30px;
-      font-size: 18px;
+    .primary-btn:hover{
+      background:#0052cc;
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
+    .secondary-btn{
+      border:1px solid #0066ff;
+      color:white;
     }
 
-    section {
-      padding: 90px 8%;
+    .secondary-btn:hover{
+      background:#0066ff;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 60px;
+    /* SECTIONS */
+
+    section{
+      padding:90px 8%;
     }
 
-    .section-title h2 {
-      font-size: 42px;
-      margin-bottom: 15px;
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
     }
 
-    .section-title p {
-      color: #94a3b8;
+    .section-title h2{
+      font-size:42px;
+      margin-bottom:15px;
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+    .section-title p{
+      color:#94a3b8;
     }
 
-    .service-card {
-      background: var(--card);
-      padding: 30px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: 0.3s;
+    /* SERVICES */
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
     }
 
-    .service-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(0,102,255,0.5);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    .card{
+      background:#0b1220;
+      padding:30px;
+      border-radius:20px;
+      transition:0.3s;
+      border:1px solid rgba(255,255,255,0.05);
     }
 
-    .service-card h3 {
-      margin-bottom: 15px;
-      color: var(--primary);
-      font-size: 20px;
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:#0066ff;
     }
 
-    .service-card p {
-      color: #cbd5e1;
-      line-height: 1.7;
-      font-size: 14px;
+    .card h3{
+      margin-bottom:15px;
+      color:#0066ff;
     }
 
-    .booking {
-      background: linear-gradient(to right, #0f172a, #020617);
-      border-radius: 30px;
+    .card p{
+      color:#cbd5e1;
+      line-height:1.7;
     }
 
-    .booking-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      align-items: center;
+    /* SERVICE BUTTONS */
+
+    .service-buttons{
+      display:flex;
+      gap:10px;
+      margin-top:20px;
     }
 
-    .booking-form {
-      background: rgba(255,255,255,0.03);
-      padding: 35px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.05);
+    .call-btn{
+      flex:1;
+      text-align:center;
+      background:#0066ff;
+      color:white;
+      padding:12px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
     }
 
-    .booking-form h3 {
-      margin-bottom: 25px;
-      font-size: 28px;
+    .call-btn:hover{
+      background:#0052cc;
     }
 
-    .input-group {
-      margin-bottom: 20px;
+    .whatsapp-btn{
+      flex:1;
+      text-align:center;
+      background:#25D366;
+      color:white;
+      padding:12px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
     }
 
-    .input-group input,
-    .input-group select,
-    .input-group textarea {
-      width: 100%;
-      padding: 14px;
-      background: #0f172a;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px;
-      color: white;
-      outline: none;
+    .whatsapp-btn:hover{
+      background:#1ebe5d;
     }
 
-    .payment-boxes {
-      display: grid;
-      gap: 20px;
+    /* FOOTER */
+
+    footer{
+      background:#000814;
+      text-align:center;
+      padding:35px;
+      color:#94a3b8;
+      border-top:1px solid rgba(255,255,255,0.05);
     }
 
-    .payment-box {
-      background: var(--card);
-      padding: 25px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
+    /* MOBILE */
 
-    .payment-box h3 {
-      margin-bottom: 10px;
-      color: var(--primary);
-    }
+    @media(max-width:900px){
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .contact-card {
-      background: var(--card);
-      padding: 30px;
-      border-radius: 20px;
-    }
-
-    .contact-card h3 {
-      margin-bottom: 15px;
-      color: var(--primary);
-    }
-
-    footer {
-      background: #020617;
-      padding: 40px 8%;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-
-    footer p {
-      color: #94a3b8;
-    }
-
-    .mobile-menu {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    @media(max-width: 900px) {
-      nav ul {
-        position: absolute;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        background: #020817;
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 0;
-        transition: 0.4s;
+      header{
+        flex-direction:column;
+        gap:20px;
       }
 
-      nav ul.active {
-        left: 0;
+      nav{
+        flex-wrap:wrap;
+        justify-content:center;
       }
 
-      .mobile-menu {
-        display: block;
+      nav a{
+        margin:10px;
       }
 
-      .hero h1 {
-        font-size: 45px;
+      .hero{
+        text-align:center;
       }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .buttons{
+        justify-content:center;
+      }
+
+      .logo-img{
+        width:180px;
+      }
+
+      .service-buttons{
+        flex-direction:column;
+      }
+
     }
+
   </style>
+
 </head>
+
 <body>
 
-<header>
-  <div class="navbar">
-    <div class="logo">LISOTECH <spam> INNOVATIONS</spam></div>
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="logo-container">
+
+      <img
+        src="LISOTECH INNOVATIONS.png"
+        alt="Lisotech Innovations Logo"
+        class="logo-img"
+      >
+
+    </div>
 
     <nav>
-      <ul id="menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#payments">Payments</a>
+      <a href="#contact">Contact</a>
+
     </nav>
 
-    <div class="mobile-menu" onclick="toggleMenu()">☰</div>
-  </div>
-</header>
+  </header>
 
-<section class="hero" id="home">
-  <div class="hero-content">
-    <h1>Modern Business Solutions <span>For Zambia</span></h1>
+  <!-- HERO -->
 
-    <p>
-      LISOTECH INNOVATIONS offers professional business registration,
-      compliance services, tax returns, websites, company profiles,
-      and online business solutions.
-    </p>
+  <section class="hero" id="home">
 
-    <div class="hero-buttons">
-      <a href="#services" class="btn">View Services</a>
-    </div>
-  </div>
-</section>
+    <div class="hero-content">
 
-<section id="services">
-  <div class="section-title">
-    <h2>Our Services</h2>
-    <p>Professional registration and compliance solutions</p>
-  </div>
+      <h1>
+        Modern Business Solutions
+        <span>For Zambia</span>
+      </h1>
 
-  <div class="services-grid">
+      <p>
+        Lisotech Innovations provides professional company registration,
+        PACRA services, ZRA registration, NHIMA services,
+        NAPSA returns, company profiles,
+        websites, and digital business solutions.
+      </p>
 
-    <div class="service-card">
-      <h3>Limited Company Registration</h3>
-      <p>Fast and professional company registration services in Zambia.</p>
-    </div>
+      <div class="buttons">
 
-    <div class="service-card">
-      <h3>PACRA Business Registration</h3>
-      <p>Complete PACRA registration and documentation support.</p>
-    </div>
+        <a
+          href="https://wa.me/260974101130"
+          class="btn primary-btn"
+        >
+          WhatsApp Us
+        </a>
 
-    <div class="service-card">
-      <h3>ZPPA Registration & Renewal</h3>
-      <p>Professional assistance with ZPPA registration and renewals.</p>
+        <a
+          href="#services"
+          class="btn secondary-btn"
+        >
+          View Services
+        </a>
+
+      </div>
+
     </div>
 
-    <div class="service-card">
-      <h3>NAPSA Registration & Returns</h3>
-      <p>Secure and reliable NAPSA processing services.</p>
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="section-title">
+
+      <h2>Our Services</h2>
+
+      <p>
+        Professional registration and compliance solutions
+      </p>
+
     </div>
 
-    <div class="service-card">
-      <h3>ZRA Registration & Returns</h3>
-      <p>Support for TOT and PAYE tax returns and registration.</p>
+    <div class="services-grid">
+
+      <!-- SERVICE 1 -->
+
+      <div class="card">
+
+        <h3>Limited Company Registration</h3>
+
+        <p>
+          Fast company registration services in Zambia.
+        </p>
+
+        <div class="service-buttons">
+
+          <a
+            href="tel:+260974101130"
+            class="call-btn"
+          >
+            Call
+          </a>
+
+          <a
+            href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20need%20Limited%20Company%20Registration%20service."
+            class="whatsapp-btn"
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- SERVICE 2 -->
+
+      <div class="card">
+
+        <h3>PACRA Registration</h3>
+
+        <p>
+          Professional PACRA registration support.
+        </p>
+
+        <div class="service-buttons">
+
+          <a
+            href="tel:+260974101130"
+            class="call-btn"
+          >
+            Call
+          </a>
+
+          <a
+            href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20need%20PACRA%20Registration%20service."
+            class="whatsapp-btn"
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- SERVICE 3 -->
+
+      <div class="card">
+
+        <h3>ZRA Registration</h3>
+
+        <p>
+          Professional ZRA registration and tax support.
+        </p>
+
+        <div class="service-buttons">
+
+          <a
+            href="tel:+260974101130"
+            class="call-btn"
+          >
+            Call
+          </a>
+
+          <a
+            href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20need%20ZRA%20Registration%20service."
+            class="whatsapp-btn"
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- SERVICE 4 -->
+
+      <div class="card">
+
+        <h3>NHIMA Registration</h3>
+
+        <p>
+          NHIMA registration and compliance services.
+        </p>
+
+        <div class="service-buttons">
+
+          <a
+            href="tel:+260974101130"
+            class="call-btn"
+          >
+            Call
+          </a>
+
+          <a
+            href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20need%20NHIMA%20Registration%20service."
+            class="whatsapp-btn"
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- SERVICE 5 -->
+
+      <div class="card">
+
+        <h3>Business Websites</h3>
+
+        <p>
+          Modern websites for businesses and organizations.
+        </p>
+
+        <div class="service-buttons">
+
+          <a
+            href="tel:+260974101130"
+            class="call-btn"
+          >
+            Call
+          </a>
+
+          <a
+            href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20need%20Business%20Website%20service."
+            class="whatsapp-btn"
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="service-card">
-      <h3>Worker's Compensation</h3>
-      <p>Registration and renewal assistance for worker compliance.</p>
+  </section>
+
+  <!-- PAYMENTS -->
+
+  <section id="payments">
+
+    <div class="section-title">
+
+      <h2>Payment Methods</h2>
+
+      <p>
+        Secure and reliable payment options
+      </p>
+
     </div>
 
-    <div class="service-card">
-      <h3>NHIMA Registration & Returns</h3>
-      <p>Quick and accurate NHIMA compliance solutions.</p>
+    <div class="services-grid">
+
+      <div class="card">
+
+        <h3>Mobile Money</h3>
+
+        <p>
+          MTN MoMo and Airtel Money supported.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Bank Payment</h3>
+
+        <p>
+          We accept Bank Transactions.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>POS Payment</h3>
+
+        <p>
+          International online payments supported.
+        </p>
+
+      </div>
+
     </div>
 
-    <div class="service-card">
-      <h3>Company Email & Profiles</h3>
-      <p>Professional branding services for your company identity.</p>
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="section-title">
+
+      <h2>Contact Us</h2>
+
+      <p>
+        Reach us anytime for support and inquiries
+      </p>
+
     </div>
 
-    <div class="service-card">
-      <h3>Business Websites</h3>
-      <p>Modern websites with excellent features.</p>
+    <div class="services-grid">
+
+      <div class="card">
+
+        <h3>Phone Numbers</h3>
+
+        <p>+260974101130</p>
+        <p>+260760996410</p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Email Address</h3>
+
+        <p>
+          lisotechinnovations@gmail.com
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Location</h3>
+
+        <p>
+          Lusaka, Zambia
+        </p>
+
+      </div>
+
     </div>
 
-  </div>
-</section>
+  </section>
 
-<section id="contact">
-  <div class="section-title">
-    <h2>Contact Us</h2>
-    <p>Reach us anytime for support and inquiries</p>
-  </div>
+  <!-- FOOTER -->
 
-  <div class="contact-grid">
+  <footer>
 
-    <div class="contact-card">
-      <h3>Phone Numbers</h3>
-      <p>+260974101130</p>
-      <p>+260760996410</p>
-    </div>
+    © 2026 LISOTECH INNOVATIONS.
+    All Rights Reserved.
 
-    <div class="contact-card">
-      <h3>Email Address</h3>
-      <p>lisotechinnovations@gmail.com</p>
-    </div>
-
-    <div class="contact-card">
-      <h3>Location</h3>
-      <p>Lusaka,Zambia</p>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  <p>
-    © 2026 LISOTECH INNOVATIONS. All Rights Reserved.
-  </p>
-</footer>
-
-<script>
-
-  function toggleMenu() {
-    document.getElementById('menu').classList.toggle('active');
-  }
-
-  document.getElementById('bookingForm').addEventListener('submit', function(e){
-    e.preventDefault();
-
-    alert('Appointment booking submitted successfully!');
-  });
-
-</script>
+  </footer>
 
 </body>
 </html>
