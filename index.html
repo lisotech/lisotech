@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LISOTECH INNOVATIONS</title>
 
+<link rel="icon" type="image/png" href="logo.png" />
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -256,7 +258,7 @@ z-index:999;
 footer {
 background: linear-gradient(135deg, #b9f2ff, #e0f7fc);
 color: #04142b;
-padding: 15px 20px; /* Reduced vertical padding for lower height */
+padding: 15px 20px;
 text-align: center;
 position: relative;
 overflow: hidden;
@@ -297,7 +299,7 @@ transform: translateY(0) rotate(0deg);
 opacity: 1;
 }
 100% {
-transform: translateY(90px) rotate(360deg); /* Shortened tracking range to fit lower height */
+transform: translateY(90px) rotate(360deg);
 opacity: 0;
 }
 }
@@ -483,7 +485,7 @@ style="background:#34A853;">
 
 <footer id="animated-footer">
 
-<p>LISOTECH || All Rights Reserved.</p>
+<p>LISOTECH INNOVATIONS. All Rights Reserved.</p>
 
 <marquee>
 Designed by LISOTECH INNOVATIONS | Call or WhatsApp: +260 974 101 130
@@ -503,7 +505,6 @@ function toggleMenu(){
 document.getElementById("menu").classList.toggle("active");
 }
 
-// Logic to generate dropping orange and red flowers inside the footer area
 function createFlower() {
   const footer = document.getElementById('animated-footer');
   if (!footer) return;
@@ -519,10 +520,10 @@ function createFlower() {
   
   flower.style.left = Math.random() * 100 + '%';
   
-  const size = Math.random() * 8 + 10; // Slightly smaller flower size bounds to match short layout space
+  const size = Math.random() * 8 + 10;
   flower.style.fontSize = size + 'px';
   
-  const duration = Math.random() * 1.5 + 1.5; // Adjusted falling speed configuration
+  const duration = Math.random() * 1.5 + 1.5;
   flower.style.animationDuration = duration + 's';
   
   footer.appendChild(flower);
@@ -532,7 +533,6 @@ function createFlower() {
   }, duration * 1000);
 }
 
-// Controls how fast new flowers spawn (every 500 milliseconds)
 setInterval(createFlower, 500);
 
 </script>
