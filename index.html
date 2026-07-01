@@ -228,9 +228,9 @@
       color: #d7e4ff;
     }
 
-    .btn {
+    .btn-shop {
       display: inline-block;
-      background: #0066ff;
+      background: linear-gradient(135deg, #25D366, #00b33c);
       padding: 14px 28px;
       border-radius: 12px;
       color: white;
@@ -239,8 +239,10 @@
       transition: .3s;
     }
 
-    .btn:hover {
+    .btn-shop:hover {
       transform: translateY(-3px);
+      background: linear-gradient(135deg, #00ff55, #25D366);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
     }
 
     section {
@@ -265,6 +267,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
+      align-items: start;
     }
 
     .service-card {
@@ -272,10 +275,11 @@
       padding: 30px;
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, .05);
-      transition: .3s;
+      transition: all .3s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      height: 100%;
     }
 
     .service-card:hover {
@@ -288,24 +292,31 @@
       color: #00d2ff;
     }
 
-    .details-btn {
-      background: rgba(0, 210, 255, 0.1);
-      border: 1px solid #00d2ff;
-      color: #00d2ff;
-      padding: 8px 16px;
-      border-radius: 8px;
+    .buy-btn {
+      background: linear-gradient(135deg, #0052cc, #0066ff);
+      border: none;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 10px;
       cursor: pointer;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 14px;
-      margin-top: 15px;
-      transition: 0.3s;
+      margin-top: 20px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       width: 100%;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 102, 255, 0.25);
+      letter-spacing: 0.5px;
     }
 
-    .details-btn:hover {
-      background: #00d2ff;
-      color: #04142b;
+    .buy-btn:hover {
+      background: linear-gradient(135deg, #00d2ff, #0066ff);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 210, 255, 0.4);
+    }
+
+    .buy-btn:active {
+      transform: translateY(1px);
     }
 
     .details-content {
@@ -319,24 +330,48 @@
       font-size: 14px;
       color: #cbd5e1;
       margin-bottom: 15px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
-    .download-btn {
+    .separated-software-items {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .software-item {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .software-item span {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #00d2ff;
+      margin-bottom: 8px;
+    }
+
+    .proceed-btn {
       display: inline-block;
       background: #25D366;
       color: white;
       padding: 8px 16px;
       border-radius: 8px;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       width: 100%;
       text-align: center;
       transition: 0.3s;
+      border: none;
+      cursor: pointer;
     }
 
-    .download-btn:hover {
+    .proceed-btn:hover {
       background: #1ebd54;
       transform: translateY(-2px);
     }
@@ -497,7 +532,7 @@
         tax returns, compliance services, websites, branding,
         company profiles and digital solutions.
       </p>
-      <a href="Lisotech_Innovations_Price_List.pdf" target="_blank" class="btn">Our Price List</a>
+      <a href="https://selar.com/m/lisotech" target="_blank" class="btn-shop"><i class="fas fa-shopping-cart"></i> Shop Now</a>
     </div>
   </section>
 
@@ -570,7 +605,7 @@
     </div>
   </section>
 
-  <!-- Computer Software Sub-Section -->
+  <!-- Computer Software Unified Section -->
   <section id="computer-software" style="padding-top: 30px;">
     <div class="section-title">
       <h2>Computer Software Services</h2>
@@ -578,137 +613,85 @@
     </div>
 
     <div class="services-grid">
-      <!-- Card 1 -->
+      <!-- Consolidated Card 1: Operating Systems -->
       <div class="service-card">
         <div>
-          <h3>Computer OS Installation</h3>
-          <p>Clean setup and configurations of genuine operating systems optimized for your PC.</p>
+          <h3>Computer OS Installation & Activation</h3>
+          <p>Clean setup, permanent digital configuration, and licensing of genuine operating systems optimized for your PC.</p>
         </div>
-        <button class="details-btn" onclick="toggleDetails('os-install-details')">Details</button>
-        <div class="details-content" id="os-install-details">
-          <p>Get a clean, completely secure installation of Windows or macOS, complete with necessary system drivers.</p>
-          <a href="https://www.mediafire.com/folder/j35t8sw41mwcj/SAMSON+Softies" target="_blank" class="download-btn">
-            <i class="fas fa-download"></i> Download Folder
+        <button class="buy-btn" onclick="toggleDetails(event, 'os-combined-details')">Buy</button>
+        <div class="details-content" id="os-combined-details">
+          <p>Get completely secure deployments with required system drivers, continuous security releases, and full feature validation. Select your target system setup:</p>
+
+          <div class="separated-software-items">
+            <!-- Windows 7 item -->
+            <div class="software-item">
+              <span>1. Windows 7</span>
+              <a href="https://selar.com/1h5t6x2zd1" target="_blank" class="proceed-btn">
+                <i class="fas fa-arrow-right"></i> Proceed
+              </a>
+            </div>
+
+            <!-- Windows 8 item -->
+            <div class="software-item">
+              <span>2. Windows 8</span>
+              <a href="https://selar.com/1h5t6x2zd1" target="_blank" class="proceed-btn">
+                <i class="fas fa-arrow-right"></i> Proceed
+              </a>
+            </div>
+
+            <!-- Windows 10 Pro item -->
+            <div class="software-item">
+              <span>3. Windows 10 Pro</span>
+              <a href="https://selar.com/74ufq5811t" target="_blank" class="proceed-btn">
+                <i class="fas fa-arrow-right"></i> Proceed
+              </a>
+            </div>
+
+            <!-- Windows 11 item -->
+            <div class="software-item">
+              <span>4. Windows 11 (Home, Pro, Pro N, Enterprise, etc.)</span>
+              <a href="https://selar.com/g8f448mr1t" target="_blank" class="proceed-btn">
+                <i class="fas fa-arrow-right"></i> Proceed
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consolidated Card 2: Microsoft Office -->
+      <div class="service-card">
+        <div>
+          <h3>Microsoft Office Suite Services</h3>
+          <p>Professional setup and permanent activation validation to clear expiration errors across all productivity suites.</p>
+        </div>
+        <button class="buy-btn" onclick="toggleDetails(event, 'office-combined-details')">Buy</button>
+        <div class="details-content" id="office-combined-details">
+          <p>We have Microsoft Office all editions from <strong>2013 to 2024 and UpToDate editions</strong>. We install and activate remotely within 2hrs to finish the process smoothly without dynamic interruptions.</p>
+          <a href="https://www.mediafire.com/file_premium/e7zmi8o414igaxf/OfficeSetup.exe/file" target="_blank" class="proceed-btn">
+            <i class="fas fa-arrow-right"></i> Proceed
           </a>
         </div>
       </div>
 
-      <!-- Card 2 -->
+      <!-- Consolidated Card 3: Utility Assets -->
       <div class="service-card">
         <div>
-          <h3>Computer OS Activation</h3>
-          <p>Permanent digital licenses and activations for computer operating systems.</p>
+          <h3>System Optimization & Image Utilities</h3>
+          <p>Advanced data archiving tools, disk image configurations, and mandatory PC baseline hardware diagnostics.</p>
         </div>
-        <button class="details-btn" onclick="toggleDetails('os-activation-details')">Details</button>
-        <div class="details-content" id="os-activation-details">
-          <p>Unlock the full features of your OS securely to access continuous Windows security updates and updates.</p>
-          <a href="https://www.mediafire.com/folder/j35t8sw41mwcj/SAMSON+Softies" target="_blank" class="download-btn">
-            <i class="fas fa-download"></i> Download Folder
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="service-card">
-        <div>
-          <h3>Microsoft Office Installation</h3>
-          <p>Professional setup of standard productivity applications like Word, Excel, and PPT.</p>
-        </div>
-        <button class="details-btn" onclick="toggleDetails('office-install-details')">Details</button>
-        <div class="details-content" id="office-install-details">
-          <p>Complete deployment of modern Microsoft Office application suites suited for business setups or student use.</p>
-          <a href="https://www.mediafire.com/folder/j35t8sw41mwcj/SAMSON+Softies" target="_blank" class="download-btn">
-            <i class="fas fa-download"></i> Download Folder
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="service-card">
-        <div>
-          <h3>Microsoft Office Activation</h3>
-          <p>Genuine software validation to clear "Product Expired" errors permanently.</p>
-        </div>
-        <button class="details-btn" onclick="toggleDetails('office-activation-details')">Details</button>
-        <div class="details-content" id="office-activation-details">
-          <p>Secure product activation that ensures your Microsoft Office suite works smoothly without sudden interruptions.</p>
-          <a href="https://www.mediafire.com/folder/j35t8sw41mwcj/SAMSON+Softies" target="_blank" class="download-btn">
-            <i class="fas fa-download"></i> Download Folder
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="service-card">
-        <div>
-          <h3>PowerISO Setup & Tools</h3>
-          <p>Professional ISO file processing, disk imaging, mounting, and bootable drive tools.</p>
-        </div>
-        <button class="details-btn" onclick="toggleDetails('iso-tools-details')">Details</button>
-        <div class="details-content" id="iso-tools-details">
-          <p>Open, extract, burn, create, compress, encrypt, and mount ISO files. Essential for running software deployments and system setups.</p>
-          <a href="https://www.mediafire.com/file_premium/iwqvef2ec6svj8u/PowerISO9-x64.exe/file" target="_blank" class="download-btn">
-            <i class="fas fa-download"></i> Download PowerISO
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="service-card">
-        <div>
-          <h3>WinRAR File Archiver</h3>
-          <p>High-efficiency file compression, archive creation, data extraction, and backup tools.</p>
-        </div>
-        <button class="details-btn" onclick="toggleDetails('winrar-tools-details')">Details</button>
-        <div class="details-content" id="winrar-tools-details">
-          <p>Compress files into RAR or ZIP formats to save disk space and securely bundle folders. Essential for managing software assets and data transfers.</p>
-          <a href="https://www.mediafire.com/file_premium/9v9irw8cmys7ied/winrar-7-11.zip/file" target="_blank" class="download-btn">
-            <i class="fas fa-download"></i> Download WinRAR
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 7 -->
-      <div class="service-card">
-        <div>
-          <h3>Windows 11 Assistant</h3>
-          <p>Official upgrade tool to safely transition your eligible PC directly to Windows 11.</p>
-        </div>
-        <button class="details-btn" onclick="toggleDetails('win11-assistant-details')">Details</button>
-        <div class="details-content" id="win11-assistant-details">
-          <p>Easily prepare and upgrade your system configuration to the latest Windows 11 platform safely without losing your personal files.</p>
-          <a href="https://www.mediafire.com/file_premium/fqgp5jzeswr2b15/Windows11InstallationAssistant.exe/file" target="_blank" class="download-btn">
-            <i class="fas fa-download"></i> Download Assistant
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 8 -->
-      <div class="service-card">
-        <div>
-          <h3>PC Health Check</h3>
-          <p>Official diagnostic tool to evaluate your computer's eligibility, performance, and health status.</p>
-        </div>
-        <button class="details-btn" onclick="toggleDetails('pc-health-check-details')">Details</button>
-        <div class="details-content" id="pc-health-check-details">
-          <p>Quickly audit your system specifications to see if your hardware meets Windows operational criteria and troubleshoot performance bottlenecks.</p>
-          <a href="https://www.mediafire.com/file_premium/y0jsb0cfbdw3kop/WindowsPCHealthCheckSetup.msi/file" target="_blank" class="download-btn">
-            <i class="fas fa-download"></i> Download Health Check
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 9 (New Windows 11 OS Downloads Service) -->
-      <div class="service-card">
-        <div>
-          <h3>Windows 11 OS ISOs</h3>
-          <p>Access complete, fully functional Windows 11 Operating System ISO image versions and builds.</p>
-        </div>
-        <button class="details-btn" onclick="toggleDetails('win11-iso-details')">Details</button>
-        <div class="details-content" id="win11-iso-details">
-          <p>Explore a collection of verified Windows 11 installation builds, pre-activated options, and ISO files clean for system architectures.</p>
-          <a href="https://getintopc.com/softwares/operating-systems/windows-11-april-2023-free-download-2971397/" target="_blank" class="download-btn">
-            <i class="fas fa-download"></i> Download Windows 11
+        <button class="buy-btn" onclick="toggleDetails(event, 'utilities-combined-details')">Buy</button>
+        <div class="details-content" id="utilities-combined-details">
+          <p>Essential utilities to bundle folders securely, run image mount deployments, upgrade architecture configurations, and handle performance optimizations:</p>
+          <ul class="software-list">
+            <li>• PowerISO Setup & Burning Tools</li>
+            <li>• WinRAR High-Efficiency File Archiver</li>
+            <li>• Windows 11 Official Upgrade Assistant</li>
+            <li>• PC Health Check Diagnostic Audit</li>
+            <li>• Complete Windows 11 OS ISO Images</li>
+          </ul>
+          <a href="https://www.mediafire.com/file_premium/iwqvef2ec6svj8u/PowerISO9-x64.exe/file" target="_blank" class="proceed-btn" style="background: #0066ff;">
+            <i class="fas fa-arrow-right"></i> Proceed
           </a>
         </div>
       </div>
@@ -739,7 +722,7 @@
 
   <footer id="animated-footer">
     <p>LISOTECH || All Rights Reserved</p>
-    <marquee scrollamount="4">Designed by LISOTECH INNOVATIONS | Call or WhatsApp: +260 974 101 130</marquee>
+    <marquee scrollamount="4">Designed by LISOTECH INNOVATIONS | Call or WhatsApp: +260974101130</marquee>
   </footer>
 
   <a href="https://wa.me/260974101130" target="_blank" class="floating-whatsapp">
@@ -754,12 +737,16 @@
       document.getElementById("siteHeader").classList.toggle("menu-open");
     }
 
-    function toggleDetails(elementId) {
-      const detailsSection = document.getElementById(elementId);
-      if (detailsSection.style.display === "block") {
-        detailsSection.style.display = "none";
-      } else {
-        detailsSection.style.display = "block";
+    function toggleDetails(event, elementId) {
+      if (event) event.stopPropagation();
+      const targetSection = document.getElementById(elementId);
+      const isCurrentlyOpen = targetSection.style.display === "block";
+      const allDetails = document.querySelectorAll('.details-content');
+      allDetails.forEach(panel => {
+        panel.style.display = "none";
+      });
+      if (!isCurrentlyOpen) {
+        targetSection.style.display = "block";
       }
     }
 
