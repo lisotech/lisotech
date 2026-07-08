@@ -367,6 +367,7 @@
       padding: 40px;
       border-radius: 25px;
       text-align: center;
+      border: 1px solid rgba(255, 255, 255, .05);
     }
 
     .contact-box h3 {
@@ -379,6 +380,7 @@
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
+      margin-bottom: 30px; /* Separates links from the price action button below */
     }
 
     .icon-only-btn {
@@ -396,6 +398,29 @@
 
     .icon-only-btn:hover {
       transform: scale(1.1);
+    }
+
+    /* Price list button modified to blend smoothly into dark theme container */
+    .btn-price-list {
+      display: inline-block;
+      background: #0066ff;
+      color: #ffffff;
+      padding: 12px 30px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 102, 255, 0.25);
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .btn-price-list:hover {
+      background: linear-gradient(135deg, #00d2ff, #0066ff);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 210, 255, 0.4);
     }
 
     /* Compact Stacking Floating Communication Buttons */
@@ -420,7 +445,7 @@
 
     .floating-telegram {
       position: fixed;
-      bottom: 145px; /* Neatly stacked above WhatsApp */
+      bottom: 145px;
       right: 20px;
       width: 45px;
       height: 45px;
@@ -439,7 +464,7 @@
 
     .floating-phone {
       position: fixed;
-      bottom: 200px; /* Neatly stacked above Telegram */
+      bottom: 200px;
       right: 20px;
       width: 45px;
       height: 45px;
@@ -486,30 +511,7 @@
       z-index: 2;
       color: #04142b;
       display: block;
-      margin-bottom: 12px;
-    }
-
-    .btn-price-list {
-      display: inline-block;
-      position: relative;
-      z-index: 2;
-      background: #04142b;
-      color: #ffffff;
-      padding: 10px 24px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(4, 20, 43, 0.2);
-    }
-
-    .btn-price-list:hover {
-      background: #0066ff;
-      color: #ffffff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(0, 102, 255, 0.4);
+      margin: 0;
     }
 
     .falling-flower {
@@ -768,15 +770,17 @@
           <i class="fas fa-phone"></i>
         </a>
       </div>
+      
+      <!-- Price List Section Moved Right Below The Icons Inside The Contact Box -->
+      <a href="PRICE_LIST.pdf" target="_blank" class="btn-price-list">
+        <i class="fas fa-file-pdf"></i> View Price List
+      </a>
     </div>
   </section>
 
   <footer id="animated-footer">
     <p>LISOTECH || All Rights Reserved</p>
     <marquee scrollamount="4">Designed by LISOTECH INNOVATIONS | Call or WhatsApp: +260974101130</marquee>
-    <a href="PRICE_LIST.pdf" target="_blank" class="btn-price-list">
-      <i class="fas fa-file-pdf"></i> View Price List
-    </a>
   </footer>
 
   <!-- Floating Communication Buttons Stack -->
