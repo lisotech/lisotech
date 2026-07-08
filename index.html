@@ -229,23 +229,6 @@
       color: #d7e4ff;
     }
 
-    .btn-shop {
-      display: inline-block;
-      background: linear-gradient(135deg, #25D366, #00b33c);
-      padding: 14px 28px;
-      border-radius: 12px;
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: .3s;
-    }
-
-    .btn-shop:hover {
-      transform: translateY(-3px);
-      background: linear-gradient(135deg, #00ff55, #25D366);
-      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-    }
-
     section {
       padding: 90px 8%;
     }
@@ -480,7 +463,7 @@
     footer {
       background: linear-gradient(135deg, #b9f2ff, #e0f7fc);
       color: #04142b;
-      padding: 15px 20px;
+      padding: 20px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -503,6 +486,30 @@
       z-index: 2;
       color: #04142b;
       display: block;
+      margin-bottom: 12px;
+    }
+
+    .btn-price-list {
+      display: inline-block;
+      position: relative;
+      z-index: 2;
+      background: #04142b;
+      color: #ffffff;
+      padding: 10px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(4, 20, 43, 0.2);
+    }
+
+    .btn-price-list:hover {
+      background: #0066ff;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 102, 255, 0.4);
     }
 
     .falling-flower {
@@ -522,7 +529,7 @@
       }
 
       100% {
-        transform: translateY(90px) rotate(360deg);
+        transform: translateY(120px) rotate(360deg);
         opacity: 0;
       }
     }
@@ -577,7 +584,6 @@
         tax returns, compliance services, websites, branding,
         company profiles and digital solutions.
       </p>
-      <a href="https://selar.com/m/lisotech" target="_blank" class="btn-shop"><i class="fas fa-shopping-cart"></i> Shop Now</a>
     </div>
   </section>
 
@@ -768,6 +774,9 @@
   <footer id="animated-footer">
     <p>LISOTECH || All Rights Reserved</p>
     <marquee scrollamount="4">Designed by LISOTECH INNOVATIONS | Call or WhatsApp: +260974101130</marquee>
+    <a href="https://selar.com/m/lisotech" target="_blank" class="btn-price-list">
+      <i class="fas fa-tags"></i> View Price List
+    </a>
   </footer>
 
   <!-- Floating Communication Buttons Stack -->
