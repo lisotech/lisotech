@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-adsense-account" content="ca-pub-8584028948447766">
   <title>LISOTECH INNOVATIONS</title>
 
   <!-- Logo in Website Title Tab (Favicon) -->
@@ -229,6 +228,21 @@
       color: #d7e4ff;
     }
 
+    .btn {
+      display: inline-block;
+      background: #0066ff;
+      padding: 14px 28px;
+      border-radius: 12px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
     section {
       padding: 90px 8%;
     }
@@ -249,7 +263,7 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 25px;
       align-items: start;
     }
@@ -274,6 +288,41 @@
     .service-card h3 {
       margin-bottom: 15px;
       color: #00d2ff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+    }
+
+    .service-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .service-list li {
+      font-size: 14px;
+      color: #cbd5e1;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-list li span.label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+    }
+
+    .service-list li span.price {
+      font-weight: 700;
+      color: #00d2ff;
+      white-space: nowrap;
+    }
+
+    .service-list li i {
+      color: #00d2ff;
+      font-size: 12px;
     }
 
     .buy-btn {
@@ -367,7 +416,6 @@
       padding: 40px;
       border-radius: 25px;
       text-align: center;
-      border: 1px solid rgba(255, 255, 255, .05);
     }
 
     .contact-box h3 {
@@ -380,7 +428,6 @@
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
-      margin-bottom: 30px;
     }
 
     .icon-only-btn {
@@ -400,96 +447,28 @@
       transform: scale(1.1);
     }
 
-    .btn-price-list {
-      display: inline-block;
-      background: #0066ff;
-      color: #ffffff;
-      padding: 12px 30px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 102, 255, 0.25);
-      width: 100%;
-      max-width: 280px;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-price-list:hover {
-      background: linear-gradient(135deg, #00d2ff, #0066ff);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(0, 210, 255, 0.4);
-    }
-
-    /* Compact Stacking Floating Communication Buttons */
     .floating-whatsapp {
       position: fixed;
-      bottom: 90px;
+      bottom: 100px;
       right: 20px;
-      width: 45px;
-      height: 45px;
+      width: 55px;
+      height: 55px;
       background: #25D366;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       color: white;
-      font-size: 22px;
+      font-size: 28px;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .4);
       z-index: 999;
-      transition: transform 0.3s ease;
-    }
-
-    .floating-telegram {
-      position: fixed;
-      bottom: 145px;
-      right: 20px;
-      width: 45px;
-      height: 45px;
-      background: #0088cc;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 20px;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
-      z-index: 999;
-      transition: transform 0.3s ease;
-    }
-
-    .floating-phone {
-      position: fixed;
-      bottom: 200px;
-      right: 20px;
-      width: 45px;
-      height: 45px;
-      background: #34A853;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 19px;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
-      z-index: 999;
-      transition: transform 0.3s ease;
-    }
-
-    .floating-whatsapp:hover, .floating-telegram:hover, .floating-phone:hover {
-      transform: scale(1.1) translateY(-2px);
     }
 
     footer {
       background: linear-gradient(135deg, #b9f2ff, #e0f7fc);
       color: #04142b;
-      padding: 20px;
+      padding: 15px 20px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -512,7 +491,6 @@
       z-index: 2;
       color: #04142b;
       display: block;
-      margin: 0;
     }
 
     .falling-flower {
@@ -532,7 +510,7 @@
       }
 
       100% {
-        transform: translateY(120px) rotate(360deg);
+        transform: translateY(90px) rotate(360deg);
         opacity: 0;
       }
     }
@@ -587,74 +565,209 @@
         tax returns, compliance services, websites, branding,
         company profiles and digital solutions.
       </p>
+      <!-- Refers to your updated dynamic PDF file -->
+      <a href="lisotech_innovations_services_2026.pdf" target="_blank" class="btn">Our Price List</a>
     </div>
   </section>
 
   <section id="services">
     <div class="section-title">
-      <h2>Our Services</h2>
-      <p>Professional Registration and Compliance Solutions</p>
+      <h2>Our Services & Pricing</h2>
+      <p>Professional Registration and Compliance Solutions (Includes Govt Fees & Service Charges)</p>
     </div>
 
     <div class="services-grid">
+      <!-- PACRA Block -->
       <div class="service-card">
-        <h3>Limited Company Registration</h3>
-        <p>Fast and professional company registration services.</p>
+        <div>
+          <h3>PACRA</h3>
+          <ul class="service-list">
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Business Name</span>
+              <span class="price">K1,000</span>
+            </li>
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Partnership</span>
+              <span class="price">K2,000</span>
+            </li>
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Limited Company</span>
+              <span class="price">K3,500</span>
+            </li>
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Annual Returns Service</span>
+              <span class="price">K250</span>
+            </li>
+          </ul>
+        </div>
+        <button class="buy-btn" onclick="orderViaWhatsApp('PACRA Services')">Inquire / Order</button>
       </div>
 
+      <!-- ZRA Block -->
       <div class="service-card">
-        <h3>PACRA Registration</h3>
-        <p>Complete PACRA registration support.</p>
+        <div>
+          <h3>ZAMBIA REVENUE AUTHORITY</h3>
+          <ul class="service-list">
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Taxpayer Registration</span>
+              <span class="price">K500</span>
+            </li>
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Turnover Tax Returns (TOT)</span>
+              <span class="price">K200 / mo</span>
+            </li>
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> PAYE Registration & Returns</span>
+              <span class="price">K100 / Emp</span>
+            </li>
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Company Registration</span>
+              <span class="price">K1,000</span>
+            </li>
+          </ul>
+        </div>
+        <button class="buy-btn" onclick="orderViaWhatsApp('ZRA Tax Services')">Inquire / Order</button>
       </div>
 
+      <!-- NAPSA Block -->
       <div class="service-card">
-        <h3>ZPPA Registration</h3>
-        <p>Registration and renewal services.</p>
+        <div>
+          <h3>NAPSA</h3>
+          <ul class="service-list">
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Personal Account</span>
+              <span class="price">K500</span>
+            </li>
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Monthly Service Fee</span>
+              <span class="price">K100 / Emp</span>
+            </li>
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Personal Account Upgrade</span>
+              <span class="price">K250</span>
+            </li>
+          </ul>
+        </div>
+        <button class="buy-btn" onclick="orderViaWhatsApp('NAPSA Compliance')">Inquire / Order</button>
       </div>
 
+      <!-- NHIMA Block -->
       <div class="service-card">
-        <h3>NAPSA Returns</h3>
-        <p>Professional NAPSA processing.</p>
+        <div>
+          <h3>NHIMA</h3>
+          <ul class="service-list">
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Company Registration</span>
+              <span class="price">K1,000</span>
+            </li>
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Personal Registration</span>
+              <span class="price">K200</span>
+            </li>
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Monthly Returns</span>
+              <span class="price">K50 / Emp</span>
+            </li>
+          </ul>
+        </div>
+        <button class="buy-btn" onclick="orderViaWhatsApp('NHIMA Compliance')">Inquire / Order</button>
       </div>
 
+      <!-- ZPPA Block -->
       <div class="service-card">
-        <h3>ZRA Returns</h3>
-        <p>TOT and PAYE returns support.</p>
+        <div>
+          <h3>ZPPA</h3>
+          <ul class="service-list">
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> New Registration</span>
+              <span class="price">K900</span>
+            </li>
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Certificate Renewal</span>
+              <span class="price">K600</span>
+            </li>
+          </ul>
+        </div>
+        <button class="buy-btn" onclick="orderViaWhatsApp('ZPPA Registration')">Inquire / Order</button>
       </div>
 
+      <!-- Workers Compensation Block -->
       <div class="service-card">
-        <h3>Worker Compensation</h3>
-        <p>Registration and renewals.</p>
+        <div>
+          <h3>WORKER'S COMPENSATION</h3>
+          <ul class="service-list">
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> New Registration</span>
+              <span class="price">K1,000</span>
+            </li>
+            <li>
+              <span class="label"><i class="fas fa-check-circle"></i> Certificate Renewal</span>
+              <span class="price">K1,000</span>
+            </li>
+          </ul>
+        </div>
+        <button class="buy-btn" onclick="orderViaWhatsApp('Workers Compensation')">Inquire / Order</button>
       </div>
 
+      <!-- Online Music Distribution -->
       <div class="service-card">
-        <h3>NHIMA Services</h3>
-        <p>Compliance and returns support.</p>
+        <div>
+          <h3>MUSIC DISTRIBUTION</h3>
+          <ul class="service-list">
+            <li>
+              <span class="label"><i class="fas fa-music"></i> All Streaming Platforms</span>
+              <span class="price">K650</span>
+            </li>
+          </ul>
+          <p style="font-size: 13px; color: #cbd5e1; margin-top: 15px; line-height: 1.5;">
+            Distribute your tracks globally to Spotify, Apple Music, Deezer, Boomplay, and more with dedicated support.
+          </p>
+        </div>
+        <button class="buy-btn" onclick="orderViaWhatsApp('Online Music Distribution')">Inquire / Order</button>
       </div>
 
+      <!-- Company Profiles Block -->
       <div class="service-card">
-        <h3>Company Profiles</h3>
-        <p>Professional branding solutions.</p>
+        <div>
+          <h3>Company Profiles</h3>
+          <p style="font-size: 14px; color: #cbd5e1; margin-top: 10px; line-height: 1.6;">Professional corporate branding, design formatting, and complete physical or digital portfolio setups built around your business goals.</p>
+        </div>
+        <button class="buy-btn" style="margin-top: auto;" onclick="orderViaWhatsApp('Company Profile Design')">Get a Quote</button>
       </div>
 
+      <!-- Business Websites Block -->
       <div class="service-card">
-        <h3>Business Websites</h3>
-        <p>Modern responsive website development.</p>
+        <div>
+          <h3>Business Websites</h3>
+          <p style="font-size: 14px; color: #cbd5e1; margin-top: 10px; line-height: 1.6;">Stunning, responsive corporate and operational website builds. Includes optimization, domain setup, and modern designs.</p>
+        </div>
+        <button class="buy-btn" style="margin-top: auto;" onclick="orderViaWhatsApp('Business Website Development')">Get a Quote</button>
       </div>
 
+      <!-- Premium Graphics Design Block -->
       <div class="service-card">
-        <h3>Premium Graphics Design</h3>
-        <p>Facebook & IG Poster</p>
-        <p>Facebook & IG Cover Photo</p>
-        <p>Facebook & IG Flyer</p>
+        <div>
+          <h3>Premium Graphics Design</h3>
+          <ul class="service-list">
+            <li><span class="label"><i class="fas fa-image"></i> Facebook & IG Poster</span></li>
+            <li><span class="label"><i class="fas fa-image"></i> Facebook & IG Cover</span></li>
+            <li><span class="label"><i class="fas fa-image"></i> Facebook & IG Flyer</span></li>
+          </ul>
+        </div>
+        <button class="buy-btn" onclick="orderViaWhatsApp('Premium Graphic Design')">Get a Quote</button>
       </div>
 
+      <!-- Social Media Management Block -->
       <div class="service-card">
-        <h3>Social Media Management</h3>
-        <p>FB Page Creating</p>
-        <p>FB Page management</p>
-        <p>Web management</p>
-        <p>Web Maintanance</p>
+        <div>
+          <h3>Social Media Management</h3>
+          <ul class="service-list">
+            <li><span class="label"><i class="fas fa-tasks"></i> Facebook Page Creation</span></li>
+            <li><span class="label"><i class="fas fa-tasks"></i> Page & Web Management</span></li>
+            <li><span class="label"><i class="fas fa-tasks"></i> Updates & Maintenance</span></li>
+          </ul>
+        </div>
+        <button class="buy-btn" onclick="orderViaWhatsApp('Social Media Management')">Get a Quote</button>
       </div>
     </div>
   </section>
@@ -697,7 +810,7 @@
             <!-- Windows 10 Pro item -->
             <div class="software-item">
               <span>3. Windows 10 Pro</span>
-              <a href="https://selar.com/74ufq5811t" target="_blank" class="proceed-btn">
+              <a href="https://selar.com/m/Buy%20Window%2010Pro%20by%20LISOTECH%20INNOVATIONS%20on%20Selar" target="_blank" class="proceed-btn">
                 <i class="fas fa-arrow-right"></i> Proceed
               </a>
             </div>
@@ -705,7 +818,7 @@
             <!-- Windows 11 item -->
             <div class="software-item">
               <span>4. Windows 11 (Home, Pro, Pro N, Enterprise, etc.)</span>
-              <a href="https://selar.com/g8f448mr1t" target="_blank" class="proceed-btn">
+              <a href="https://selar.com/1h5t6x2zd1" target="_blank" class="proceed-btn">
                 <i class="fas fa-arrow-right"></i> Proceed
               </a>
             </div>
@@ -722,7 +835,7 @@
         <button class="buy-btn" onclick="toggleDetails(event, 'office-combined-details')">Buy</button>
         <div class="details-content" id="office-combined-details">
           <p>We have Microsoft Office all editions from <strong>2013 to 2024 and UpToDate editions</strong>. We install and activate remotely within 2hrs to finish the process smoothly without dynamic interruptions.</p>
-          <a href="https://www.mediafire.com/file_premium/e7zmi8o414igaxf/OfficeSetup.exe/file" target="_blank" class="proceed-btn">
+          <a href="https://www.mediafire.com/folder/j35t8sw41mwcj/SAMSON+Softies" target="_blank" class="proceed-btn">
             <i class="fas fa-arrow-right"></i> Proceed
           </a>
         </div>
@@ -737,14 +850,14 @@
         <button class="buy-btn" onclick="toggleDetails(event, 'utilities-combined-details')">Buy</button>
         <div class="details-content" id="utilities-combined-details">
           <p>Essential utilities to bundle folders securely, run image mount deployments, upgrade architecture configurations, and handle performance optimizations:</p>
-          <ul class="software-list">
-            <li>• PowerISO Setup & Burning Tools</li>
-            <li>• WinRAR High-Efficiency File Archiver</li>
-            <li>• Windows 11 Official Upgrade Assistant</li>
-            <li>• PC Health Check Diagnostic Audit</li>
-            <li>• Complete Windows 11 OS ISO Images</li>
+          <ul class="software-list" style="list-style: none; padding-left: 0;">
+            <li style="font-size: 14px; color: #cbd5e1; margin-bottom: 6px;">• PowerISO Setup & Burning Tools</li>
+            <li style="font-size: 14px; color: #cbd5e1; margin-bottom: 6px;">• WinRAR High-Efficiency File Archiver</li>
+            <li style="font-size: 14px; color: #cbd5e1; margin-bottom: 6px;">• Windows 11 Official Upgrade Assistant</li>
+            <li style="font-size: 14px; color: #cbd5e1; margin-bottom: 6px;">• PC Health Check Diagnostic Audit</li>
+            <li style="font-size: 14px; color: #cbd5e1; margin-bottom: 6px;">• Complete Windows 11 OS ISO Images</li>
           </ul>
-          <a href="https://www.mediafire.com/file_premium/iwqvef2ec6svj8u/PowerISO9-x64.exe/file" target="_blank" class="proceed-btn" style="background: #0066ff;">
+          <a href="https://getintopc.com/?s=windows+11" target="_blank" class="proceed-btn" style="background: #0066ff; margin-top: 15px;">
             <i class="fas fa-arrow-right"></i> Proceed
           </a>
         </div>
@@ -768,30 +881,16 @@
           <i class="fab fa-facebook-f"></i>
         </a>
         <a href="tel:+260974101130" class="icon-only-btn" style="background:#34A853;">
-          <i class="fas fa-phone"></i>
+          <i class="fas fa-phone-alt"></i>
         </a>
       </div>
-      
-      <!-- Price List View-Only Action Button -->
-      <button onclick="viewPriceList()" class="btn-price-list">
-        <i class="fas fa-eye"></i> View Price List
-      </button>
     </div>
   </section>
 
   <footer id="animated-footer">
     <p>LISOTECH || All Rights Reserved</p>
-    <marquee scrollamount="4">Designed by LISOTECH INNOVATIONS | Call or WhatsApp: +260974101130</marquee>
+    <marquee scrollamount="4">Designed by LISOTECH INNOVATIONS | Call or WhatsApp: +260 974 101 130</marquee>
   </footer>
-
-  <!-- Floating Communication Buttons Stack -->
-  <a href="tel:+260974101130" class="floating-phone">
-    <i class="fas fa-phone"></i>
-  </a>
-
-  <a href="https://t.me/260974101130" target="_blank" class="floating-telegram">
-    <i class="fab fa-telegram-plane"></i>
-  </a>
 
   <a href="https://wa.me/260974101130" target="_blank" class="floating-whatsapp">
     <i class="fab fa-whatsapp"></i>
@@ -818,9 +917,12 @@
       }
     }
 
-    // Opens PDF in view-mode disabling toolbar/downloads on supported PDF viewers
-    function viewPriceList() {
-      window.open('PRICE_LIST.pdf#toolbar=0&navpanes=0', '_blank');
+    // Helper function to dynamically redirect customers straight to WhatsApp with pre-filled order messages
+    function orderViaWhatsApp(serviceName) {
+      const baseNum = "260974101130";
+      const message = `Hello Lisotech Innovations, I'm interested in your "${serviceName}" service from your website and would like to request more details.`;
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/${baseNum}?text=${encodedMessage}`, '_blank');
     }
 
     function createFlower() {
