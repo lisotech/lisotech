@@ -9,8 +9,7 @@
   <!-- Logo in Website Title Tab (Favicon) -->
   <link rel="icon" type="image/png" href="logo.png" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
@@ -96,7 +95,6 @@
       color: #00d2ff;
     }
 
-    /* Spring-Action Side Nav Menu */
     nav ul {
       position: fixed;
       top: 0;
@@ -194,11 +192,7 @@
 
     .hero {
       padding: 170px 8% 120px;
-      background:
-        linear-gradient(to right,
-          rgba(4, 20, 43, .95),
-          rgba(4, 20, 43, .75)),
-        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop');
+      background: linear-gradient(to right, rgba(4, 20, 43, .95), rgba(4, 20, 43, .75)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
     }
@@ -314,28 +308,53 @@
       text-align: left;
     }
 
-    .service-list li span.price {
-      font-weight: 700;
-      color: #00d2ff;
-      white-space: nowrap;
+    .toggle-pricing-container {
+      display: none;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 10px;
+      padding: 15px;
     }
 
-    .service-list li i {
+    .pricing-table {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .pricing-row:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-row .p-name {
+      color: #cbd5e1;
+    }
+
+    .pricing-row .p-price {
+      font-weight: 700;
       color: #00d2ff;
-      font-size: 12px;
     }
 
     .buy-btn {
       background: linear-gradient(135deg, #0052cc, #0066ff);
       border: none;
       color: #ffffff;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border-radius: 10px;
       cursor: pointer;
       font-weight: 600;
       font-size: 14px;
       margin-top: 20px;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 0.3s ease;
       width: 100%;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0, 102, 255, 0.25);
@@ -348,8 +367,24 @@
       box-shadow: 0 6px 15px rgba(0, 210, 255, 0.4);
     }
 
-    .buy-btn:active {
-      transform: translateY(1px);
+    .whatsapp-order-btn {
+      display: block;
+      background: #25D366;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .whatsapp-order-btn:hover {
+      background: #1ebd54;
     }
 
     .details-content {
@@ -565,8 +600,7 @@
         tax returns, compliance services, websites, branding,
         company profiles and digital solutions.
       </p>
-      <!-- Refers to your updated dynamic PDF file -->
-      <a href="lisotech_innovations_services_2026.pdf" target="_blank" class="btn">Our Price List</a>
+      <a href="lisotech_innovations_services_2026.pdf" target="_blank" class="btn">View Full Price List</a>
     </div>
   </section>
 
@@ -582,25 +616,22 @@
         <div>
           <h3>PACRA</h3>
           <ul class="service-list">
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Business Name</span>
-              <span class="price">K1,000</span>
-            </li>
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Partnership</span>
-              <span class="price">K2,000</span>
-            </li>
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Limited Company</span>
-              <span class="price">K3,500</span>
-            </li>
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Annual Returns Service</span>
-              <span class="price">K250</span>
-            </li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Business Name</span></li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Partnership</span></li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Limited Company</span></li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Annual Returns Service</span></li>
           </ul>
         </div>
-        <button class="buy-btn" onclick="orderViaWhatsApp('PACRA Services')">Inquire / Order</button>
+        <button class="buy-btn" onclick="togglePricing(this)">View Pricing & Order</button>
+        <div class="toggle-pricing-container">
+          <div class="pricing-table">
+            <div class="pricing-row"><span class="p-name">Business Name</span><span class="p-price">K1,000</span></div>
+            <div class="pricing-row"><span class="p-name">Partnership</span><span class="p-price">K2,000</span></div>
+            <div class="pricing-row"><span class="p-name">Limited Company</span><span class="p-price">K3,500</span></div>
+            <div class="pricing-row"><span class="p-name">Annual Returns</span><span class="p-price">K250</span></div>
+          </div>
+          <button class="whatsapp-order-btn" onclick="orderViaWhatsApp('PACRA Services')"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button>
+        </div>
       </div>
 
       <!-- ZRA Block -->
@@ -608,25 +639,22 @@
         <div>
           <h3>ZAMBIA REVENUE AUTHORITY</h3>
           <ul class="service-list">
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Taxpayer Registration</span>
-              <span class="price">K500</span>
-            </li>
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Turnover Tax Returns (TOT)</span>
-              <span class="price">K200 / mo</span>
-            </li>
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> PAYE Registration & Returns</span>
-              <span class="price">K100 / Emp</span>
-            </li>
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Company Registration</span>
-              <span class="price">K1,000</span>
-            </li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Taxpayer Registration</span></li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Turnover Tax Returns (TOT)</span></li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> PAYE Registration & Returns</span></li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Company Registration</span></li>
           </ul>
         </div>
-        <button class="buy-btn" onclick="orderViaWhatsApp('ZRA Tax Services')">Inquire / Order</button>
+        <button class="buy-btn" onclick="togglePricing(this)">View Pricing & Order</button>
+        <div class="toggle-pricing-container">
+          <div class="pricing-table">
+            <div class="pricing-row"><span class="p-name">Taxpayer Reg</span><span class="p-price">K500</span></div>
+            <div class="pricing-row"><span class="p-name">TOT Returns</span><span class="p-price">K200 / mo</span></div>
+            <div class="pricing-row"><span class="p-name">PAYE Returns</span><span class="p-price">K100 / Emp</span></div>
+            <div class="pricing-row"><span class="p-name">Company Reg</span><span class="p-price">K1,000</span></div>
+          </div>
+          <button class="whatsapp-order-btn" onclick="orderViaWhatsApp('ZRA Tax Services')"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button>
+        </div>
       </div>
 
       <!-- NAPSA Block -->
@@ -634,21 +662,20 @@
         <div>
           <h3>NAPSA</h3>
           <ul class="service-list">
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Personal Account</span>
-              <span class="price">K500</span>
-            </li>
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Monthly Service Fee</span>
-              <span class="price">K100 / Emp</span>
-            </li>
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Personal Account Upgrade</span>
-              <span class="price">K250</span>
-            </li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Personal Account</span></li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Monthly Service Fee</span></li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Personal Account Upgrade</span></li>
           </ul>
         </div>
-        <button class="buy-btn" onclick="orderViaWhatsApp('NAPSA Compliance')">Inquire / Order</button>
+        <button class="buy-btn" onclick="togglePricing(this)">View Pricing & Order</button>
+        <div class="toggle-pricing-container">
+          <div class="pricing-table">
+            <div class="pricing-row"><span class="p-name">Personal Account</span><span class="p-price">K500</span></div>
+            <div class="pricing-row"><span class="p-name">Monthly Service Fee</span><span class="p-price">K100 / Emp</span></div>
+            <div class="pricing-row"><span class="p-name">Account Upgrade</span><span class="p-price">K250</span></div>
+          </div>
+          <button class="whatsapp-order-btn" onclick="orderViaWhatsApp('NAPSA Compliance')"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button>
+        </div>
       </div>
 
       <!-- NHIMA Block -->
@@ -656,21 +683,20 @@
         <div>
           <h3>NHIMA</h3>
           <ul class="service-list">
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Company Registration</span>
-              <span class="price">K1,000</span>
-            </li>
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Personal Registration</span>
-              <span class="price">K200</span>
-            </li>
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Monthly Returns</span>
-              <span class="price">K50 / Emp</span>
-            </li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Company Registration</span></li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Personal Registration</span></li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Monthly Returns</span></li>
           </ul>
         </div>
-        <button class="buy-btn" onclick="orderViaWhatsApp('NHIMA Compliance')">Inquire / Order</button>
+        <button class="buy-btn" onclick="togglePricing(this)">View Pricing & Order</button>
+        <div class="toggle-pricing-container">
+          <div class="pricing-table">
+            <div class="pricing-row"><span class="p-name">Company Reg</span><span class="p-price">K1,000</span></div>
+            <div class="pricing-row"><span class="p-name">Personal Reg</span><span class="p-price">K200</span></div>
+            <div class="pricing-row"><span class="p-name">Monthly Returns</span><span class="p-price">K50 / Emp</span></div>
+          </div>
+          <button class="whatsapp-order-btn" onclick="orderViaWhatsApp('NHIMA Compliance')"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button>
+        </div>
       </div>
 
       <!-- ZPPA Block -->
@@ -678,17 +704,18 @@
         <div>
           <h3>ZPPA</h3>
           <ul class="service-list">
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> New Registration</span>
-              <span class="price">K900</span>
-            </li>
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Certificate Renewal</span>
-              <span class="price">K600</span>
-            </li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> New Registration</span></li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Certificate Renewal</span></li>
           </ul>
         </div>
-        <button class="buy-btn" onclick="orderViaWhatsApp('ZPPA Registration')">Inquire / Order</button>
+        <button class="buy-btn" onclick="togglePricing(this)">View Pricing & Order</button>
+        <div class="toggle-pricing-container">
+          <div class="pricing-table">
+            <div class="pricing-row"><span class="p-name">New Registration</span><span class="p-price">K900</span></div>
+            <div class="pricing-row"><span class="p-name">Certificate Renewal</span><span class="p-price">K600</span></div>
+          </div>
+          <button class="whatsapp-order-btn" onclick="orderViaWhatsApp('ZPPA Registration')"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button>
+        </div>
       </div>
 
       <!-- Workers Compensation Block -->
@@ -696,17 +723,18 @@
         <div>
           <h3>WORKER'S COMPENSATION</h3>
           <ul class="service-list">
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> New Registration</span>
-              <span class="price">K1,000</span>
-            </li>
-            <li>
-              <span class="label"><i class="fas fa-check-circle"></i> Certificate Renewal</span>
-              <span class="price">K1,000</span>
-            </li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> New Registration</span></li>
+            <li><span class="label"><i class="fas fa-check-circle"></i> Certificate Renewal</span></li>
           </ul>
         </div>
-        <button class="buy-btn" onclick="orderViaWhatsApp('Workers Compensation')">Inquire / Order</button>
+        <button class="buy-btn" onclick="togglePricing(this)">View Pricing & Order</button>
+        <div class="toggle-pricing-container">
+          <div class="pricing-table">
+            <div class="pricing-row"><span class="p-name">New Registration</span><span class="p-price">K1,000</span></div>
+            <div class="pricing-row"><span class="p-name">Certificate Renewal</span><span class="p-price">K1,000</span></div>
+          </div>
+          <button class="whatsapp-order-btn" onclick="orderViaWhatsApp('Workers Compensation')"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button>
+        </div>
       </div>
 
       <!-- Online Music Distribution -->
@@ -714,16 +742,19 @@
         <div>
           <h3>MUSIC DISTRIBUTION</h3>
           <ul class="service-list">
-            <li>
-              <span class="label"><i class="fas fa-music"></i> All Streaming Platforms</span>
-              <span class="price">K650</span>
-            </li>
+            <li><span class="label"><i class="fas fa-music"></i> All Streaming Platforms</span></li>
           </ul>
           <p style="font-size: 13px; color: #cbd5e1; margin-top: 15px; line-height: 1.5;">
             Distribute your tracks globally to Spotify, Apple Music, Deezer, Boomplay, and more with dedicated support.
           </p>
         </div>
-        <button class="buy-btn" onclick="orderViaWhatsApp('Online Music Distribution')">Inquire / Order</button>
+        <button class="buy-btn" onclick="togglePricing(this)">View Pricing & Order</button>
+        <div class="toggle-pricing-container">
+          <div class="pricing-table">
+            <div class="pricing-row"><span class="p-name">Global Distribution</span><span class="p-price">K650</span></div>
+          </div>
+          <button class="whatsapp-order-btn" onclick="orderViaWhatsApp('Online Music Distribution')"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button>
+        </div>
       </div>
 
       <!-- Company Profiles Block -->
@@ -791,31 +822,24 @@
           <p>Get completely secure deployments with required system drivers, continuous security releases, and full feature validation. Select your target system setup:</p>
 
           <div class="separated-software-items">
-            <!-- Windows 7 item -->
             <div class="software-item">
               <span>1. Windows 7</span>
               <a href="https://selar.com/1h5t6x2zd1" target="_blank" class="proceed-btn">
                 <i class="fas fa-arrow-right"></i> Proceed
               </a>
             </div>
-
-            <!-- Windows 8 item -->
             <div class="software-item">
               <span>2. Windows 8</span>
               <a href="https://selar.com/1h5t6x2zd1" target="_blank" class="proceed-btn">
                 <i class="fas fa-arrow-right"></i> Proceed
               </a>
             </div>
-
-            <!-- Windows 10 Pro item -->
             <div class="software-item">
               <span>3. Windows 10 Pro</span>
               <a href="https://selar.com/m/Buy%20Window%2010Pro%20by%20LISOTECH%20INNOVATIONS%20on%20Selar" target="_blank" class="proceed-btn">
                 <i class="fas fa-arrow-right"></i> Proceed
               </a>
             </div>
-
-            <!-- Windows 11 item -->
             <div class="software-item">
               <span>4. Windows 11 (Home, Pro, Pro N, Enterprise, etc.)</span>
               <a href="https://selar.com/1h5t6x2zd1" target="_blank" class="proceed-btn">
@@ -904,6 +928,15 @@
       document.getElementById("siteHeader").classList.toggle("menu-open");
     }
 
+    function togglePricing(btnElement) {
+      const container = btnElement.nextElementSibling;
+      if (container && container.classList.contains('toggle-pricing-container')) {
+        const isVisible = container.style.display === 'block';
+        container.style.display = isVisible ? 'none' : 'block';
+        btnElement.innerText = isVisible ? 'View Pricing & Order' : 'Hide Pricing';
+      }
+    }
+
     function toggleDetails(event, elementId) {
       if (event) event.stopPropagation();
       const targetSection = document.getElementById(elementId);
@@ -917,7 +950,6 @@
       }
     }
 
-    // Helper function to dynamically redirect customers straight to WhatsApp with pre-filled order messages
     function orderViaWhatsApp(serviceName) {
       const baseNum = "260974101130";
       const message = `Hello Lisotech Innovations, I'm interested in your "${serviceName}" service from your website and would like to request more details.`;
@@ -948,5 +980,4 @@
   </script>
 
 </body>
-
 </html>
