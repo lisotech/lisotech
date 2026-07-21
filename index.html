@@ -137,6 +137,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       color: #00d2ff;
     }
 
+    .nav-right-cluster {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-book-btn {
+      background: linear-gradient(135deg, #25D366, #1ebd54);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .header-book-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    }
+
     nav ul {
       position: fixed;
       top: 0;
@@ -726,8 +754,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </ul>
       </nav>
 
-      <div class="mobile-menu" id="hamburgerBtn" onclick="toggleMenu()">
-        ☰
+      <div class="nav-right-cluster">
+        <button class="header-book-btn" onclick="openBookingModal()">
+          <i class="fas fa-calendar-check"></i> Book Now
+        </button>
+        <div class="mobile-menu" id="hamburgerBtn" onclick="toggleMenu()">
+          ☰
+        </div>
       </div>
     </div>
   </header>
