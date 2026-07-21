@@ -243,6 +243,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       max-width: 700px;
     }
 
+    .hero-top-action {
+      margin-bottom: 30px;
+    }
+
+    .hero-book-btn {
+      background: linear-gradient(135deg, #25D366, #1ebd54);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-book-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.55);
+    }
+
     .hero h1 {
       font-size: 65px;
       margin-bottom: 20px;
@@ -262,38 +287,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       line-height: 1.8;
       margin-bottom: 30px;
       color: #d7e4ff;
-    }
-
-    /* Hero Booking Wrapper with Highlighted Blue Background */
-    .hero-booking-wrapper {
-      margin-top: 30px;
-      display: inline-block;
-      padding: 20px 25px;
-      background: linear-gradient(135deg, #0d1b33, #004080);
-      border: 2px solid #00d2ff;
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0, 102, 255, 0.25);
-    }
-
-    .main-booking-trigger {
-      background: linear-gradient(135deg, #25D366, #1ebd54);
-      color: white;
-      border: none;
-      padding: 14px 30px;
-      font-size: 16px;
-      font-weight: 700;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .main-booking-trigger:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
     }
 
     section {
@@ -737,19 +730,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <section class="hero" id="home">
     <div class="hero-content">
+      <div class="hero-top-action">
+        <button class="hero-book-btn" onclick="openBookingModal()">
+          <i class="fas fa-calendar-check"></i> Book a Service Now
+        </button>
+      </div>
       <h3>Modern Business Solutions For <span>Zambia</span></h3>
       <p>
         LISOTECH INNOVATIONS offers professional business registration,
         tax returns, compliance services, websites, branding,
         company profiles and digital solutions.
       </p>
-
-      <!-- Booking Button Repositioned to the Hero Section with Blue Background -->
-      <div class="hero-booking-wrapper">
-        <button class="main-booking-trigger" onclick="openBookingModal()">
-          <i class="fas fa-calendar-check"></i> Book a Service Now
-        </button>
-      </div>
     </div>
   </section>
 
