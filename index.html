@@ -2,7 +2,7 @@
 // PHP Backend Logic for Handling Bookings
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     error_reporting(0);
-    log_errors: ini_set('display_errors', 0);
+    @ini_set('display_errors', 0);
     
     header('Content-Type: application/json');
     
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $emailBody .= "Name: " . $name . "\n";
             $emailBody .= "Email: " . $email . "\n";
             $emailBody .= "Phone: " . $phone . "\n";
-            $emailBody .= "Service: " . $service . "\n";
+            $emailBody .= "Service Option: " . $service . "\n";
             $emailBody .= "Preferred Date: " . $date . "\n\n";
             $emailBody .= "Please follow up with the client promptly.";
 
@@ -1050,21 +1050,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <input type="tel" id="phone" name="phone" required>
         </div>
         <div class="form-group">
-          <label for="service">Select Service</label>
+          <label for="service">Select Exact Service Option</label>
           <select id="service" name="service" required>
-            <option value="">-- Choose a Service --</option>
-            <option value="PACRA Registration">PACRA Registration</option>
-            <option value="ZRA Tax Services">ZRA Tax Services</option>
-            <option value="NAPSA Compliance">NAPSA Compliance</option>
-            <option value="NHIMA Compliance">NHIMA Compliance</option>
-            <option value="ZPPA Registration">ZPPA Registration</option>
-            <option value="Workers Compensation">Workers Compensation</option>
-            <option value="Online Music Distribution">Online Music Distribution</option>
-            <option value="Company Profiles">Company Profiles</option>
-            <option value="Business Websites">Business Websites</option>
-            <option value="Premium Graphics Design">Premium Graphics Design</option>
-            <option value="Social Media Management">Social Media Management</option>
-            <option value="Computer Software Installation">Computer Software Installation</option>
+            <option value="">-- Choose Exact Service Option --</option>
+            <optgroup label="PACRA">
+              <option value="PACRA - Business Name">PACRA - Business Name</option>
+              <option value="PACRA - Partnership">PACRA - Partnership</option>
+              <option value="PACRA - Limited Company">PACRA - Limited Company</option>
+              <option value="PACRA - Annual Returns">PACRA - Annual Returns</option>
+            </optgroup>
+            <optgroup label="ZRA Tax Services">
+              <option value="ZRA - Taxpayer Registration">ZRA - Taxpayer Registration</option>
+              <option value="ZRA - Turnover Tax Returns (TOT)">ZRA - Turnover Tax Returns (TOT)</option>
+              <option value="ZRA - PAYE Registration & Returns">ZRA - PAYE Registration & Returns</option>
+              <option value="ZRA - Company Registration">ZRA - Company Registration</option>
+            </optgroup>
+            <optgroup label="NAPSA Compliance">
+              <option value="NAPSA - Individual Registration">NAPSA - Individual Registration</option>
+              <option value="NAPSA - Company Registration">NAPSA - Company Registration</option>
+              <option value="NAPSA - Monthly Service Fee">NAPSA - Monthly Service Fee</option>
+            </optgroup>
+            <optgroup label="NHIMA Compliance">
+              <option value="NHIMA - Company Registration">NHIMA - Company Registration</option>
+              <option value="NHIMA - Personal Registration">NHIMA - Personal Registration</option>
+              <option value="NHIMA - Monthly Returns">NHIMA - Monthly Returns</option>
+            </optgroup>
+            <optgroup label="ZPPA Registration">
+              <option value="ZPPA - New Registration">ZPPA - New Registration</option>
+              <option value="ZPPA - Certificate Renewal">ZPPA - Certificate Renewal</option>
+            </optgroup>
+            <optgroup label="Worker's Compensation">
+              <option value="Workers Comp - New Registration">Workers Comp - New Registration</option>
+              <option value="Workers Comp - Certificate Renewal">Workers Comp - Certificate Renewal</option>
+            </optgroup>
+            <optgroup label="Other Services">
+              <option value="Online Music Distribution">Online Music Distribution</option>
+              <option value="Company Profiles Design">Company Profiles Design</option>
+              <option value="Business Websites Development">Business Websites Development</option>
+              <option value="Premium Graphics Design">Premium Graphics Design</option>
+              <option value="Social Media Management">Social Media Management</option>
+              <option value="Computer Software Installation">Computer Software Installation</option>
+            </optgroup>
           </select>
         </div>
         <div class="form-group">
@@ -1181,9 +1207,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         body: JSON.stringify(formData)
       }).catch(() => {}); // Suppress any network block errors
 
-      // 2. Open WhatsApp instantly in a new tab with pre-filled booking details
+      // 2. Open WhatsApp instantly in a new tab with pre-filled exact sub-service option
       const adminWhatsAppNumber = '260974101130';
-      const whatsappMessage = `*New Service Booking*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Service:* ${formData.service}%0A*Date:* ${formData.date}`;
+      const whatsappMessage = `*New Service Booking*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Service Option:* ${formData.service}%0A*Date:* ${formData.date}`;
       
       const whatsappUrl = `https://wa.me/${adminWhatsAppNumber}?text=${whatsappMessage}`;
       
