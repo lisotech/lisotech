@@ -445,6 +445,114 @@
       transform: translateY(-2px);
     }
 
+    /* Booking Section Styles */
+    .booking-wrapper {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .main-booking-trigger {
+      background: linear-gradient(135deg, #25D366, #1ebd54);
+      color: white;
+      border: none;
+      padding: 16px 36px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .main-booking-trigger:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    }
+
+    .booking-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(4, 20, 43, 0.85);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .booking-card {
+      background: #0d1b33;
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%;
+      max-width: 450px;
+      position: relative;
+      text-align: left;
+    }
+
+    .booking-card h3 {
+      color: #00d2ff;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #cbd5e1;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      border-color: #00d2ff;
+    }
+
+    .form-group select option {
+      background: #0d1b33;
+      color: white;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .close-modal:hover {
+      color: #ff4a4a;
+    }
+
+    #response-msg {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
     .contact-box {
       background: #0d1b33;
       max-width: 550px;
@@ -800,6 +908,13 @@
         <button class="buy-btn" onclick="orderViaWhatsApp('Social Media Management')">Get a Quote</button>
       </div>
     </div>
+
+    <!-- Booking Button at the end of the services -->
+    <div class="booking-wrapper">
+      <button class="main-booking-trigger" onclick="openBookingModal()">
+        <i class="fas fa-calendar-check"></i> Book a Service Now
+      </button>
+    </div>
   </section>
 
   <!-- Computer Software Unified Section -->
@@ -888,6 +1003,52 @@
     </div>
   </section>
 
+  <!-- Booking Modal Popup -->
+  <div class="booking-modal" id="bookingModal">
+    <div class="booking-card">
+      <div class="close-modal" onclick="closeBookingModal()">&times;</div>
+      <h3>Book a Service</h3>
+      <form id="bookingForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="service">Select Service</label>
+          <select id="service" name="service" required>
+            <option value="">-- Choose a Service --</option>
+            <option value="PACRA Registration">PACRA Registration</option>
+            <option value="ZRA Tax Services">ZRA Tax Services</option>
+            <option value="NAPSA Compliance">NAPSA Compliance</option>
+            <option value="NHIMA Compliance">NHIMA Compliance</option>
+            <option value="ZPPA Registration">ZPPA Registration</option>
+            <option value="Workers Compensation">Workers Compensation</option>
+            <option value="Online Music Distribution">Online Music Distribution</option>
+            <option value="Company Profiles">Company Profiles</option>
+            <option value="Business Websites">Business Websites</option>
+            <option value="Premium Graphics Design">Premium Graphics Design</option>
+            <option value="Social Media Management">Social Media Management</option>
+            <option value="Computer Software Installation">Computer Software Installation</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Preferred Date</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <button type="submit" class="buy-btn">Confirm Booking</button>
+      </form>
+      <div id="response-msg"></div>
+    </div>
+  </div>
+
   <section id="contact">
     <div class="section-title">
       <h2>Contact Us</h2>
@@ -956,6 +1117,64 @@
       window.open(`https://wa.me/${baseNum}?text=${encodedMessage}`, '_blank');
     }
 
+    // Booking Modal Functionality
+    function openBookingModal() {
+      document.getElementById('bookingModal').style.display = 'flex';
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').style.display = 'none';
+      document.getElementById('bookingForm').reset();
+      document.getElementById('response-msg').innerText = '';
+    }
+
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        service: document.getElementById('service').value,
+        date: document.getElementById('date').value
+      };
+
+      const msgDiv = document.getElementById('response-msg');
+      msgDiv.style.color = '#00d2ff';
+      msgDiv.innerText = 'Processing your booking...';
+
+      // 1. Send data to backend for Email Processing
+      fetch('process-booking.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(data.status === 'success') {
+          msgDiv.style.color = '#25D366';
+          msgDiv.innerText = 'Booking successful! Redirecting to WhatsApp...';
+
+          // 2. Format WhatsApp Message and Redirect to your WhatsApp Number
+          const adminWhatsAppNumber = '260974101130';
+          const whatsappMessage = `*New Service Booking*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Service:* ${formData.service}%0A*Date:* ${formData.date}`;
+          
+          setTimeout(() => {
+            window.location.href = `https://wa.me/${adminWhatsAppNumber}?text=${whatsappMessage}`;
+          }, 1500);
+
+        } else {
+          msgDiv.style.color = '#ff4a4a';
+          msgDiv.innerText = 'Error: ' + data.message;
+        }
+      })
+      .catch(error => {
+        msgDiv.style.color = '#ff4a4a';
+        msgDiv.innerText = 'An error occurred. Please try again.';
+        console.error('Error:', error);
+      });
+    });
+
     function createFlower() {
       const footer = document.getElementById('animated-footer');
       if (!footer) return;
@@ -975,8 +1194,7 @@
         flower.remove();
       }, duration * 1000);
     }
-    setInterval(createFlower, 500);
+    setInterval(createFlower, 400);
   </script>
-
 </body>
 </html>
