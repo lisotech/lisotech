@@ -471,12 +471,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       transform: translateY(-2px);
     }
 
-    /* Booking Section Styles */
+    /* Booking Section Styles with Blue Background Highlight */
     .booking-wrapper {
       text-align: center;
-      margin-top: 50px;
-      padding: 0;
-      transition: background 0.3s ease;
+      margin-top: 40px;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #0d1b33, #004080);
+      border: 2px solid #00d2ff;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 102, 255, 0.25);
     }
 
     .main-booking-trigger {
@@ -687,22 +690,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       }
     }
 
-    /* Mobile specific style for booking wrapper background */
-    @media(max-width: 900px) {
+    @media(max-width:900px) {
       .hero h1 {
         font-size: 40px;
       }
 
       .hero h3 {
         font-size: 28px;
-      }
-
-      .booking-wrapper {
-        background: #0052cc;
-        padding: 30px 20px;
-        border-radius: 20px;
-        border: 1px solid rgba(0, 210, 255, 0.3);
-        box-shadow: 0 8px 25px rgba(0, 82, 204, 0.4);
       }
     }
   </style>
@@ -946,7 +940,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </div>
 
-    <!-- Booking Button Wrapper -->
+    <!-- Booking Wrapper with Highlighted Blue Background -->
     <div class="booking-wrapper">
       <button class="main-booking-trigger" onclick="openBookingModal()">
         <i class="fas fa-calendar-check"></i> Book a Service Now
