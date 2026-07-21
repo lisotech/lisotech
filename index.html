@@ -1,9 +1,8 @@
 <?php
 // PHP Backend Logic for Handling Bookings
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Ensure no unwanted output breaks the JSON response
     error_reporting(0);
-    ini_set('display_errors', 0);
+    log_errors: ini_set('display_errors', 0);
     
     header('Content-Type: application/json');
     
@@ -27,12 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $emailBody .= "Phone: " . $phone . "\n";
             $emailBody .= "Service: " . $service . "\n";
             $emailBody .= "Preferred Date: " . $date . "\n\n";
-            $emailBody .= "Please follow up with the client promptly via WhatsApp or phone call.";
+            $emailBody .= "Please follow up with the client promptly.";
 
             $headers = "From: noreply@lisotech.org\r\n";
             $headers .= "Reply-To: " . $email . "\r\n";
 
-            // Attempt to send email (suppressed so it won't crash execution if mail server isn't configured)
             @mail($to, $subject, $emailBody, $headers);
 
             echo json_encode(['status' => 'success', 'message' => 'Booking processed successfully.']);
@@ -266,21 +264,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       line-height: 1.8;
       margin-bottom: 30px;
       color: #d7e4ff;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #0066ff;
-      padding: 14px 28px;
-      border-radius: 12px;
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: .3s;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
     }
 
     section {
@@ -1125,6 +1108,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <i class="fab fa-whatsapp"></i>
   </a>
 
+  <!-- Hidden iframe for instant silent form tracking submission without page redirects -->
+  <iframe name="hidden_tracker" id="hidden_tracker" style="display:none;"></iframe>
+
   <script>
     function toggleMenu() {
       document.getElementById("menu").classList.toggle("active");
@@ -1185,46 +1171,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       };
 
       const msgDiv = document.getElementById('response-msg');
-      msgDiv.style.color = '#00d2ff';
-      msgDiv.innerText = 'Processing your booking...';
+      msgDiv.style.color = '#25D366';
+      msgDiv.innerText = 'Sending to WhatsApp instantly...';
 
-      // 1. Send data to backend for processing (self-posting to index.php)
+      // 1. Send data silently to backend in background without affecting user screen
       fetch('', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
-      })
-      .then(response => {
-        // Fallback safety if server returns text/html error instead of json
-        const contentType = response.headers.get("content-type");
-        if (contentType && contentType.includes("application/json")) {
-          return response.json();
-        }
-        return { status: 'success' }; // Fallback to allow redirect even if mail server lacks JSON response
-      })
-      .then(data => {
-        msgDiv.style.color = '#25D366';
-        msgDiv.innerText = 'Booking confirmed! Redirecting to WhatsApp...';
+      }).catch(() => {}); // Suppress any network block errors
 
-        // 2. Format WhatsApp Message and Redirect to your WhatsApp Number
-        const adminWhatsAppNumber = '260974101130';
-        const whatsappMessage = `*New Service Booking*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Service:* ${formData.service}%0A*Date:* ${formData.date}`;
-        
-        setTimeout(() => {
-          window.location.href = `https://wa.me/${adminWhatsAppNumber}?text=${whatsappMessage}`;
-        }, 1200);
-      })
-      .catch(error => {
-        // Fallback for network issues: still redirect to WhatsApp so the user's booking isn't lost
-        msgDiv.style.color = '#25D366';
-        msgDiv.innerText = 'Redirecting to WhatsApp...';
-        const adminWhatsAppNumber = '260974101130';
-        const whatsappMessage = `*New Service Booking*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Service:* ${formData.service}%0A*Date:* ${formData.date}`;
-        
-        setTimeout(() => {
-          window.location.href = `https://wa.me/${adminWhatsAppNumber}?text=${whatsappMessage}`;
-        }, 1000);
-      });
+      // 2. Open WhatsApp instantly in a new tab with pre-filled booking details
+      const adminWhatsAppNumber = '260974101130';
+      const whatsappMessage = `*New Service Booking*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Service:* ${formData.service}%0A*Date:* ${formData.date}`;
+      
+      const whatsappUrl = `https://wa.me/${adminWhatsAppNumber}?text=${whatsappMessage}`;
+      
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+        closeBookingModal();
+      }, 500);
     });
 
     function createFlower() {
