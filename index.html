@@ -656,6 +656,7 @@
     .service-cell {
       width: 50%;
       text-align: left;
+      border-right: 1px solid rgba(255, 255, 255, 0.1); /* Straight dividing line between Service Details and Amount */
     }
 
     .amount-cell {
@@ -663,6 +664,7 @@
       font-weight: 600;
       color: #25D366;
       width: 25%;
+      padding-right: 12px;
     }
 
     .note-box {
@@ -715,79 +717,6 @@
       font-size: 11px;
       color: var(--text-muted);
       font-style: italic;
-    }
-
-    /* Booking Modal Specific Styles Matching Price List Form Theme & Background */
-    .booking-form-group {
-      margin-bottom: 15px;
-      text-align: left;
-    }
-
-    .booking-form-group label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--accent-cyan);
-      margin-bottom: 5px;
-      text-align: left;
-    }
-
-    .booking-form-group input,
-    .booking-form-group select,
-    .booking-form-group textarea {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 10px 12px;
-      border-radius: 8px;
-      color: white;
-      font-size: 13px;
-      outline: none;
-      text-align: left;
-      transition: border-color 0.3s ease;
-    }
-
-    .booking-form-group input:focus,
-    .booking-form-group select:focus,
-    .booking-form-group textarea:focus {
-      border-color: var(--accent-cyan);
-    }
-
-    .booking-form-group select option {
-      background: var(--card-bg);
-      color: white;
-      text-align: left;
-    }
-
-    .booking-form-group select optgroup {
-      background: var(--card-bg);
-      color: var(--accent-cyan);
-      font-weight: 700;
-      text-align: left;
-    }
-
-    .submit-booking-btn {
-      width: 100%;
-      background: #25D366;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: background 0.3s ease, transform 0.2s ease;
-      margin-top: 10px;
-      text-align: center;
-    }
-
-    .submit-booking-btn:hover {
-      background: #1ebd54;
-      transform: translateY(-2px);
     }
 
     /* Floating Communication Buttons */
@@ -948,11 +877,6 @@
         tax returns, compliance services, websites, branding,
         company profiles, and world-class digital solutions.
       </p>
-      <div class="hero-buttons">
-        <button class="hero-book-btn" onclick="toggleBookingModal(true)">
-          <i class="fas fa-calendar-check"></i> Book a Service
-        </button>
-      </div>
     </div>
   </section>
 
@@ -1173,7 +1097,7 @@
           <thead>
             <tr>
               <th>Category</th>
-              <th>Service Details</th>
+              <th style="border-right: 1px solid rgba(255, 255, 255, 0.1);">Service Details</th>
               <th style="text-align: right;">Amount</th>
             </tr>
           </thead>
@@ -1182,11 +1106,11 @@
             <tr>
               <td class="category-cell" rowspan="4">PACRA</td>
               <td class="service-cell">Business Name</td>
-              <td class="amount-cell">K850</td>
+              <td class="amount-cell">K1,000</td>
             </tr>
             <tr>
               <td class="service-cell">Partnership</td>
-              <td class="amount-cell">K1500</td>
+              <td class="amount-cell">K2,000</td>
             </tr>
             <tr>
               <td class="service-cell">Limited Company</td>
@@ -1204,11 +1128,11 @@
               <td class="amount-cell">K500</td>
             </tr>
             <tr>
-              <td class="service-cell">Monthly Turnover Tax Filing</td>
+              <td class="service-cell">Monthly Service Fee (TOT)</td>
               <td class="amount-cell">K200</td>
             </tr>
             <tr>
-              <td class="service-cell">Monthly PAYE Returns</td>
+              <td class="service-cell">Monthly Service Fee - PAYE</td>
               <td class="amount-cell">K100 / Emp</td>
             </tr>
             <tr>
@@ -1218,17 +1142,17 @@
 
             <!-- NAPSA -->
             <tr>
-              <td class="category-cell" rowspan="3">NAPSA Reg</td>
+              <td class="category-cell" rowspan="3">NAPSA</td>
               <td class="service-cell">Personal</td>
-              <td class="amount-cell">K200</td>
+              <td class="amount-cell">K500</td>
             </tr>
             <tr>
               <td class="service-cell">Monthly Service Fee</td>
               <td class="amount-cell">K100 / Emp</td>
             </tr>
             <tr>
-              <td class="service-cell">Company </td>
-              <td class="amount-cell">K1000</td>
+              <td class="service-cell">Personal Account Upgrade</td>
+              <td class="amount-cell">K250</td>
             </tr>
 
             <!-- ZPPA -->
@@ -1238,7 +1162,7 @@
               <td class="amount-cell">K900</td>
             </tr>
             <tr>
-              <td class="service-cell">Certificate Renewal</td>
+              <td class="service-cell">Renewal</td>
               <td class="amount-cell">K600</td>
             </tr>
 
@@ -1249,7 +1173,7 @@
               <td class="amount-cell">K1,000</td>
             </tr>
             <tr>
-              <td class="service-cell">Certificate Renewal</td>
+              <td class="service-cell">Renewal</td>
               <td class="amount-cell">K1,000</td>
             </tr>
 
@@ -1260,7 +1184,7 @@
               <td class="amount-cell">K1,000</td>
             </tr>
             <tr>
-              <td class="service-cell">Individual Reg</td>
+              <td class="service-cell">Personal Reg</td>
               <td class="amount-cell">K200</td>
             </tr>
             <tr>
@@ -1291,91 +1215,6 @@
       <div class="closing-message">
         Thank you for reaching out to us. We highly value your business!
       </div>
-    </div>
-  </div>
-
-  <!-- BOOKING MODAL -->
-  <div id="bookingModal" class="modal" onclick="closeModalOutside(event, 'bookingModal')">
-    <div class="modal-content">
-      <span class="close-btn" onclick="toggleBookingModal(false)">&times;</span>
-
-      <div class="modal-brand-header">
-        <h3>LISOTECH INNOVATIONS</h3>
-        <div class="modal-contact-line">
-          <span><strong>Quick Booking Service</strong></span>
-        </div>
-      </div>
-
-      <h2>Book a Service</h2>
-
-      <form id="bookingForm" onsubmit="submitBooking(event)">
-        <div class="booking-form-group">
-          <label for="clientName">Full Name</label>
-          <input type="text" id="clientName" required placeholder="Enter your full name">
-        </div>
-
-        <div class="booking-form-group">
-          <label for="clientPhone">Phone Number / WhatsApp</label>
-          <input type="tel" id="clientPhone" required placeholder="e.g. +260974101130">
-        </div>
-
-        <div class="booking-form-group">
-          <label for="serviceSelect">Select Service Option</label>
-          <select id="serviceSelect" required>
-            <option value="" disabled selected>-- Choose from all available services --</option>
-            <optgroup label="PACRA Services">
-              <option value="PACRA: Business Name (K1,000)">PACRA: Business Name (K1,000)</option>
-              <option value="PACRA: Partnership (K2,000)">PACRA: Partnership (K2,000)</option>
-              <option value="PACRA: Limited Company (K3,500)">PACRA: Limited Company (K3,500)</option>
-              <option value="PACRA: Annual Returns Service Fee (K250)">PACRA: Annual Returns Service Fee (K250)</option>
-            </optgroup>
-            <optgroup label="ZRA Services">
-              <option value="ZRA: Registration (K500)">ZRA: Registration (K500)</option>
-              <option value="ZRA: Monthly Service Fee (TOT) (K200)">ZRA: Monthly Service Fee (TOT) (K200)</option>
-              <option value="ZRA: Monthly Service Fee - PAYE (K100 / Emp)">ZRA: Monthly Service Fee - PAYE (K100 / Emp)</option>
-              <option value="ZRA: Company Registration (K1,000)">ZRA: Company Registration (K1,000)</option>
-            </optgroup>
-            <optgroup label="NAPSA Services">
-              <option value="NAPSA: Personal (K500)">NAPSA: Personal (K500)</option>
-              <option value="NAPSA: Monthly Service Fee (K100 / Emp)">NAPSA: Monthly Service Fee (K100 / Emp)</option>
-              <option value="NAPSA: Personal Account Upgrade (K250)">NAPSA: Personal Account Upgrade (K250)</option>
-            </optgroup>
-            <optgroup label="ZPPA Services">
-              <option value="ZPPA: New Registration (K900)">ZPPA: New Registration (K900)</option>
-              <option value="ZPPA: Renewal (K600)">ZPPA: Renewal (K600)</option>
-            </optgroup>
-            <optgroup label="Workers Compensation">
-              <option value="Workers Comp: New Registration (K1,000)">Workers Comp: New Registration (K1,000)</option>
-              <option value="Workers Comp: Renewal (K1,000)">Workers Comp: Renewal (K1,000)</option>
-            </optgroup>
-            <optgroup label="NHIMA Services">
-              <option value="NHIMA: Company Reg (K1,000)">NHIMA: Company Reg (K1,000)</option>
-              <option value="NHIMA: Personal Reg (K200)">NHIMA: Personal Reg (K200)</option>
-              <option value="NHIMA: Monthly Returns (K50 / Emp)">NHIMA: Monthly Returns (K50 / Emp)</option>
-            </optgroup>
-            <optgroup label="Digital & Technical Solutions">
-              <option value="Compliance Services">Compliance Services</option>
-              <option value="Company Profiles">Company Profiles</option>
-              <option value="Business Websites">Business Websites</option>
-              <option value="Premium Graphics Design">Premium Graphics Design</option>
-              <option value="Social Media Management">Social Media Management</option>
-              <option value="Online Music Distribution (K650)">Online Music Distribution (K650)</option>
-              <option value="Computer OS Installation & Activation">Computer OS Installation & Activation</option>
-              <option value="Microsoft Office Suite Services">Microsoft Office Suite Services</option>
-              <option value="System Optimization & Utilities">System Optimization & Utilities</option>
-            </optgroup>
-          </select>
-        </div>
-
-        <div class="booking-form-group">
-          <label for="clientNotes">Additional Details / Instructions (Optional)</label>
-          <textarea id="clientNotes" rows="3" placeholder="Provide any specific context or details about your request"></textarea>
-        </div>
-
-        <button type="submit" class="submit-booking-btn">
-          <i class="fab fa-whatsapp"></i> Send Booking via WhatsApp
-        </button>
-      </form>
     </div>
   </div>
 
@@ -1436,44 +1275,12 @@
       }
     }
 
-    function toggleBookingModal(show) {
-      const modal = document.getElementById("bookingModal");
-      if (show) {
-        modal.classList.add("active");
-        document.body.style.overflow = "hidden";
-      } else {
-        modal.classList.remove("active");
-        document.body.style.overflow = "auto";
-      }
-    }
-
     function closeModalOutside(event, modalId) {
       const modal = document.getElementById(modalId);
       const modalContent = modal.querySelector('.modal-content');
       if (!modalContent.contains(event.target)) {
         if (modalId === 'priceModal') toggleModal(false);
-        if (modalId === 'bookingModal') toggleBookingModal(false);
       }
-    }
-
-    function submitBooking(event) {
-      event.preventDefault();
-      const name = document.getElementById("clientName").value.trim();
-      const phone = document.getElementById("clientPhone").value.trim();
-      const service = document.getElementById("serviceSelect").value;
-      const notes = document.getElementById("clientNotes").value.trim();
-
-      let message = `Hello LISOTECH INNOVATIONS, I would like to book a service.%0A%0A`;
-      message += `*Name:* ${encodeURIComponent(name)}%0A`;
-      message += `*Phone:* ${encodeURIComponent(phone)}%0A`;
-      message += `*Selected Service:* ${encodeURIComponent(service)}%0A`;
-      if (notes) {
-        message += `*Additional Notes:* ${encodeURIComponent(notes)}%0A`;
-      }
-
-      const whatsappUrl = `https://wa.me/260974101130?text=${message}`;
-      window.open(whatsappUrl, '_blank');
-      toggleBookingModal(false);
     }
 
     /* Footer Animations */
