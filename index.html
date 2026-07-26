@@ -455,7 +455,7 @@
       box-shadow: 0 6px 20px var(--primary-glow);
     }
 
-    /* Modal Styles */
+    /* Modal Styles - Fully Responsive & Left Aligned Text */
     .modal {
       position: fixed;
       top: 0;
@@ -471,6 +471,7 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
+      padding: 10px;
     }
 
     .modal.active {
@@ -480,17 +481,18 @@
 
     .modal-content {
       background: var(--card-bg);
-      width: 92%;
+      width: 100%;
       max-width: 650px;
-      max-height: 90vh;
+      max-height: 92vh;
       overflow-y: auto;
       border-radius: 20px;
-      padding: 35px;
+      padding: 25px 20px;
       position: relative;
       border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
-      transform: translateY(-30px) scale(0.95);
+      transform: translateY(-20px) scale(0.95);
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: left; /* Left align everything inside modal */
     }
 
     .modal.active .modal-content {
@@ -499,7 +501,7 @@
 
     /* Custom Scrollbar for Modal */
     .modal-content::-webkit-scrollbar {
-      width: 6px;
+      width: 5px;
     }
     .modal-content::-webkit-scrollbar-track {
       background: rgba(255,255,255,0.02);
@@ -512,9 +514,9 @@
 
     .close-btn {
       position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 32px;
+      top: 12px;
+      right: 15px;
+      font-size: 28px;
       color: var(--text-muted);
       cursor: pointer;
       transition: color 0.3s ease;
@@ -526,26 +528,26 @@
     }
 
     .modal-brand-header {
-      text-align: center;
-      margin-bottom: 25px;
-      padding-bottom: 20px;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
       border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+      text-align: left;
     }
 
     .modal-brand-header h3 {
       color: var(--primary);
-      margin-bottom: 12px;
-      font-size: 22px;
+      margin-bottom: 8px;
+      font-size: 18px;
       font-weight: 800;
     }
 
     .modal-contact-line {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      font-size: 13px;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
       color: var(--text-muted);
+      text-align: left;
     }
 
     .modal-contact-line strong {
@@ -553,38 +555,41 @@
     }
 
     .modal h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      font-size: 20px;
+      margin-bottom: 20px;
+      font-size: 18px;
       color: #fff;
+      text-align: left;
     }
 
     .table-responsive-wrapper {
       width: 100%;
       overflow-x: auto;
-      margin-bottom: 25px;
-      border-radius: 12px;
+      margin-bottom: 20px;
+      border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.05);
+      -webkit-overflow-scrolling: touch;
     }
 
     .price-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 14px;
+      font-size: 12.5px;
+      white-space: nowrap;
     }
 
     .price-table th {
       background: rgba(0, 102, 255, 0.15);
       color: var(--accent-cyan);
-      padding: 14px;
+      padding: 10px 12px;
       text-align: left;
       font-weight: 700;
     }
 
     .price-table td {
-      padding: 14px;
+      padding: 10px 12px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       color: var(--text-main);
+      text-align: left;
     }
 
     .price-table tr:last-child td {
@@ -608,38 +613,39 @@
     .note-box {
       background: rgba(0, 210, 255, 0.08);
       border-left: 4px solid var(--accent-cyan);
-      padding: 15px;
+      padding: 12px;
       border-radius: 0 8px 8px 0;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+      text-align: left;
     }
 
     .note-title {
       font-weight: 700;
       color: var(--accent-cyan);
-      margin-bottom: 6px;
-      font-size: 14px;
+      margin-bottom: 4px;
+      font-size: 13px;
     }
 
     .note-text {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
     .btn-dl {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
       color: white;
       text-decoration: none;
-      padding: 14px;
-      border-radius: 12px;
+      padding: 12px;
+      border-radius: 10px;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       transition: all 0.3s ease;
-      font-size: 15px;
+      font-size: 13.5px;
     }
 
     .btn-dl:hover {
@@ -648,8 +654,8 @@
     }
 
     .closing-message {
-      text-align: center;
-      font-size: 13px;
+      text-align: left;
+      font-size: 12px;
       color: var(--text-muted);
       font-style: italic;
     }
@@ -729,16 +735,46 @@
       }
     }
 
+    @media(min-width: 768px) {
+      .modal-content {
+        padding: 35px;
+      }
+      .modal-brand-header h3 {
+        font-size: 22px;
+      }
+      .modal-contact-line {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 15px;
+        font-size: 13px;
+      }
+      .modal h2 {
+        font-size: 20px;
+      }
+      .price-table {
+        font-size: 14px;
+        white-space: normal;
+      }
+      .price-table th, .price-table td {
+        padding: 14px;
+      }
+      .note-text {
+        font-size: 13px;
+      }
+      .btn-dl {
+        font-size: 15px;
+      }
+      .closing-message {
+        font-size: 13px;
+      }
+    }
+
     @media(max-width: 900px) {
       .hero h3 {
         font-size: 34px;
       }
       .section-title h2 {
         font-size: 30px;
-      }
-      .modal-contact-line {
-        flex-direction: column;
-        gap: 8px;
       }
     }
   </style>
@@ -1171,7 +1207,7 @@
       const modal = document.getElementById("priceModal");
       if (show) {
         modal.classList.add("active");
-        document.body.style.overflow = "hidden"; // Prevent scrolling behind modal
+        document.body.style.overflow = "hidden";
       } else {
         modal.classList.remove("active");
         document.body.style.overflow = "auto";
@@ -1180,7 +1216,6 @@
 
     function closeModalOutside(event) {
       const modalContent = document.querySelector('.modal-content');
-      // If clicked element is strictly the overlay (not the content inside)
       if (!modalContent.contains(event.target)) {
         toggleModal(false);
       }
