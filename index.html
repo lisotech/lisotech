@@ -656,7 +656,7 @@
     .service-cell {
       width: 50%;
       text-align: left;
-      border-right: 1px solid rgba(255, 255, 255, 0.1); /* Straight dividing line between Service Details and Amount */
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .amount-cell {
@@ -717,6 +717,110 @@
       font-size: 11px;
       color: var(--text-muted);
       font-style: italic;
+    }
+
+    /* Booking Modal Styles */
+    .booking-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .booking-category-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+
+    .booking-category-card:hover {
+      background: rgba(0, 102, 255, 0.15);
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    .booking-category-card h4 {
+      color: var(--accent-cyan);
+      font-size: 14px;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .booking-category-card p {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .booking-services-view {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .back-to-categories {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.2s ease;
+    }
+
+    .back-to-categories:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--accent-cyan);
+    }
+
+    .service-option-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .service-option-info {
+      font-size: 12.5px;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .service-option-info span {
+      display: block;
+      font-size: 11px;
+      color: #25D366;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .book-now-action-btn {
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .book-now-action-btn:hover {
+      background: #1ebd54;
     }
 
     /* Floating Communication Buttons */
@@ -827,6 +931,9 @@
       .closing-message {
         font-size: 13px;
       }
+      .booking-menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     @media(max-width: 900px) {
@@ -877,6 +984,11 @@
         tax returns, compliance services, websites, branding,
         company profiles, and world-class digital solutions.
       </p>
+      <div class="hero-buttons">
+        <button onclick="toggleBookingModal(true)" class="hero-book-btn">
+          <i class="fas fa-calendar-check"></i> Book a Service Now
+        </button>
+      </div>
     </div>
   </section>
 
@@ -1075,6 +1187,71 @@
       </div>
     </div>
   </section>
+
+  <!-- INTERACTIVE BOOKING MODAL -->
+  <div id="bookingModal" class="modal" onclick="closeModalOutside(event, 'bookingModal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="toggleBookingModal(false)">&times;</span>
+
+      <div class="modal-brand-header">
+        <h3>LISOTECH INNOVATIONS</h3>
+        <div class="modal-contact-line">
+          <span><strong>Booking Desk:</strong> Select a service category</span>
+        </div>
+      </div>
+
+      <h2>Quick Service Booking</h2>
+
+      <!-- Category Selection View -->
+      <div id="bookingCategoriesView">
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Choose a category below to explore individual services and book instantly via WhatsApp:</p>
+        <div class="booking-menu-grid">
+          <div class="booking-category-card" onclick="showBookingOptions('pacra')">
+            <h4>PACRA</h4>
+            <p>Company & Business Name Registrations</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('zra')">
+            <h4>ZRA</h4>
+            <p>Tax returns & registrations</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('napsa')">
+            <h4>NAPSA</h4>
+            <p>Account setup & monthly returns</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('zppa')">
+            <h4>ZPPA</h4>
+            <p>New registration & renewals</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('workers')">
+            <h4>Workers Comp</h4>
+            <p>Setup & certificate renewals</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('nhima')">
+            <h4>NHIMA</h4>
+            <p>Company & personal registration</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('software')">
+            <h4>Software</h4>
+            <p>OS & Office Suite installations</p>
+          </div>
+          <div class="booking-category-card" onclick="showBookingOptions('digital')">
+            <h4>Digital Services</h4>
+            <p>Websites, Profiles & Graphics</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specific Services Listing View -->
+      <div id="bookingServicesView" class="booking-services-view">
+        <button class="back-to-categories" onclick="backToCategoriesView()">
+          <i class="fas fa-arrow-left"></i> Back to Categories
+        </button>
+        <h3 id="selectedCategoryTitle" style="color: var(--accent-cyan); font-size: 15px; margin-bottom: 12px;"></h3>
+        <div id="serviceOptionsList"></div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- PRICE LIST MODAL -->
   <div id="priceModal" class="modal" onclick="closeModalOutside(event, 'priceModal')">
@@ -1275,11 +1452,126 @@
       }
     }
 
+    /* Booking Modal Scripts */
+    function toggleBookingModal(show) {
+      const modal = document.getElementById("bookingModal");
+      if (show) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+        backToCategoriesView();
+      } else {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    const bookingData = {
+      pacra: {
+        title: "PACRA Services",
+        items: [
+          { name: "Business Name Registration", price: "K1,000" },
+          { name: "Partnership Registration", price: "K2,000" },
+          { name: "Limited Company Setup", price: "K3,500" },
+          { name: "Annual Returns Filing", price: "K250" }
+        ]
+      },
+      zra: {
+        title: "ZRA Services",
+        items: [
+          { name: "Tax Payer Registration", price: "K500" },
+          { name: "Turnover Tax Returns", price: "K200" },
+          { name: "PAYE Returns Handling", price: "K100 / Emp" },
+          { name: "ZRA Company Registration", price: "K1,000" }
+        ]
+      },
+      napsa: {
+        title: "NAPSA Services",
+        items: [
+          { name: "Personal NAPSA Setup", price: "K500" },
+          { name: "Monthly Service Returns", price: "K100 / Emp" },
+          { name: "Personal Account Upgrade", price: "K250" }
+        ]
+      },
+      zppa: {
+        title: "ZPPA Services",
+        items: [
+          { name: "New ZPPA Registration", price: "K900" },
+          { name: "Certificate Renewal", price: "K600" }
+        ]
+      },
+      workers: {
+        title: "Workers Compensation",
+        items: [
+          { name: "New Workers Comp Setup", price: "K1,000" },
+          { name: "Annual Certificate Renewal", price: "K1,000" }
+        ]
+      },
+      nhima: {
+        title: "NHIMA Services",
+        items: [
+          { name: "Company Registration", price: "K1,000" },
+          { name: "Personal Registration", price: "K200" },
+          { name: "Monthly Returns Filing", price: "K50 / Emp" }
+        ]
+      },
+      software: {
+        title: "Computer Software",
+        items: [
+          { name: "Windows 10 Pro Installation", price: "Selar / Custom" },
+          { name: "Windows 11 Setup", price: "Selar / Custom" },
+          { name: "Microsoft Office Suite", price: "Full Edition" }
+        ]
+      },
+      digital: {
+        title: "Digital Solutions",
+        items: [
+          { name: "Business Website Design", price: "Custom Quote" },
+          { name: "Company Profile Branding", price: "Custom Quote" },
+          { name: "Social Media Graphics", price: "Custom Quote" }
+        ]
+      }
+    };
+
+    function showBookingOptions(categoryKey) {
+      const category = bookingData[categoryKey];
+      document.getElementById("selectedCategoryTitle").innerText = category.title;
+      
+      const listContainer = document.getElementById("serviceOptionsList");
+      listContainer.innerHTML = "";
+      
+      category.items.forEach(item => {
+        const whatsappMsg = encodeURIComponent(`Hello Lisotech Innovations, I would like to book / inquire about: ${item.name} (${category.title}) priced at ${item.price}. Please assist.`);
+        const whatsappLink = `https://wa.me/260974101130?text=${whatsappMsg}`;
+        
+        const optionDiv = document.createElement("div");
+        optionDiv.className = "service-option-item";
+        optionDiv.innerHTML = `
+          <div class="service-option-info">
+            ${item.name}
+            <span>Fee: ${item.price}</span>
+          </div>
+          <a href="${whatsappLink}" target="_blank" class="book-now-action-btn">
+            <i class="fab fa-whatsapp"></i> Book Now
+          </a>
+        `;
+        listContainer.appendChild(optionDiv);
+      });
+
+      document.getElementById("bookingCategoriesView").style.display = "none";
+      document.getElementById("bookingServicesView").style.display = "block";
+    }
+
+    function backToCategoriesView() {
+      document.getElementById("bookingServicesView").style.display = "none";
+      document.getElementById("bookingCategoriesView").style.display = "block";
+    }
+
     function closeModalOutside(event, modalId) {
       const modal = document.getElementById(modalId);
       const modalContent = modal.querySelector('.modal-content');
       if (!modalContent.contains(event.target)) {
         if (modalId === 'priceModal') toggleModal(false);
+        if (modalId === 'bookingModal') toggleBookingModal(false);
       }
     }
 
