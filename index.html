@@ -188,6 +188,7 @@
 
     .hero-content {
       max-width: 750px;
+      text-align: left;
     }
 
     .hero h3 {
@@ -195,12 +196,14 @@
       font-weight: 800;
       line-height: 1.2;
       margin-bottom: 20px;
+      text-align: left;
     }
 
     .hero h3 span {
       background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-align: left;
     }
 
     .hero p {
@@ -208,6 +211,7 @@
       line-height: 1.8;
       margin-bottom: 35px;
       color: var(--text-muted);
+      text-align: left;
     }
 
     .hero-buttons {
@@ -280,6 +284,7 @@
       justify-content: space-between;
       position: relative;
       overflow: hidden;
+      text-align: left;
     }
 
     .service-card::before {
@@ -310,6 +315,7 @@
       font-weight: 700;
       margin-bottom: 15px;
       color: var(--accent-cyan);
+      text-align: left;
     }
 
     .service-card p {
@@ -317,6 +323,7 @@
       color: var(--text-muted);
       margin-bottom: 8px;
       line-height: 1.6;
+      text-align: left;
     }
 
     /* Interactive Elements & Buttons */
@@ -347,6 +354,7 @@
       margin-top: 20px;
       padding-top: 20px;
       border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      text-align: left;
     }
 
     .details-content p {
@@ -354,17 +362,20 @@
       color: var(--text-muted);
       margin-bottom: 15px;
       line-height: 1.6;
+      text-align: left;
     }
 
     .software-list {
       list-style: none;
       margin-bottom: 15px;
+      text-align: left;
     }
 
     .software-list li {
       font-size: 13px;
       color: var(--text-muted);
       margin-bottom: 6px;
+      text-align: left;
     }
 
     .separated-software-items {
@@ -372,6 +383,7 @@
       flex-direction: column;
       gap: 12px;
       margin-top: 10px;
+      text-align: left;
     }
 
     .software-item {
@@ -379,6 +391,7 @@
       padding: 12px 15px;
       border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.04);
+      text-align: left;
     }
 
     .software-item span {
@@ -387,6 +400,7 @@
       font-weight: 600;
       color: var(--accent-cyan);
       margin-bottom: 8px;
+      text-align: left;
     }
 
     .proceed-btn {
@@ -429,6 +443,7 @@
       color: var(--accent-cyan);
       font-size: 24px;
       font-weight: 700;
+      text-align: center;
     }
 
     .contact-buttons-container {
@@ -569,6 +584,7 @@
       margin-bottom: 6px;
       font-size: 16px;
       font-weight: 800;
+      text-align: left;
     }
 
     .modal-contact-line {
@@ -634,10 +650,12 @@
       background: rgba(255, 255, 255, 0.02);
       border-right: 1px solid rgba(255, 255, 255, 0.05);
       width: 25%;
+      text-align: left;
     }
 
     .service-cell {
       width: 50%;
+      text-align: left;
     }
 
     .amount-cell {
@@ -661,12 +679,14 @@
       color: var(--accent-cyan);
       margin-bottom: 3px;
       font-size: 12px;
+      text-align: left;
     }
 
     .note-text {
       font-size: 11px;
       color: var(--text-muted);
       line-height: 1.4;
+      text-align: left;
     }
 
     .btn-dl {
@@ -697,9 +717,10 @@
       font-style: italic;
     }
 
-    /* Booking Modal Specific Styles */
+    /* Booking Modal Specific Styles Matching Price List Form Theme & Background */
     .booking-form-group {
       margin-bottom: 15px;
+      text-align: left;
     }
 
     .booking-form-group label {
@@ -708,6 +729,7 @@
       font-weight: 600;
       color: var(--accent-cyan);
       margin-bottom: 5px;
+      text-align: left;
     }
 
     .booking-form-group input,
@@ -721,6 +743,7 @@
       color: white;
       font-size: 13px;
       outline: none;
+      text-align: left;
       transition: border-color 0.3s ease;
     }
 
@@ -733,6 +756,14 @@
     .booking-form-group select option {
       background: var(--card-bg);
       color: white;
+      text-align: left;
+    }
+
+    .booking-form-group select optgroup {
+      background: var(--card-bg);
+      color: var(--accent-cyan);
+      font-weight: 700;
+      text-align: left;
     }
 
     .submit-booking-btn {
@@ -751,6 +782,7 @@
       gap: 8px;
       transition: background 0.3s ease, transform 0.2s ease;
       margin-top: 10px;
+      text-align: center;
     }
 
     .submit-booking-btn:hover {
@@ -1116,9 +1148,6 @@
         <button onclick="toggleModal(true)" class="btn-price-list">
           <i class="fas fa-eye"></i> View Price List
         </button>
-        <button onclick="toggleBookingModal(true)" class="btn-price-list" style="background: linear-gradient(135deg, var(--accent-cyan), var(--primary));">
-          <i class="fas fa-calendar-check"></i> Book a Service
-        </button>
       </div>
     </div>
   </section>
@@ -1153,11 +1182,11 @@
             <tr>
               <td class="category-cell" rowspan="4">PACRA</td>
               <td class="service-cell">Business Name</td>
-              <td class="amount-cell">K1,000</td>
+              <td class="amount-cell">K850</td>
             </tr>
             <tr>
               <td class="service-cell">Partnership</td>
-              <td class="amount-cell">K2,000</td>
+              <td class="amount-cell">K1500</td>
             </tr>
             <tr>
               <td class="service-cell">Limited Company</td>
@@ -1175,11 +1204,11 @@
               <td class="amount-cell">K500</td>
             </tr>
             <tr>
-              <td class="service-cell">Monthly Service Fee (TOT)</td>
+              <td class="service-cell">Monthly Turnover Tax Filing</td>
               <td class="amount-cell">K200</td>
             </tr>
             <tr>
-              <td class="service-cell">Monthly Service Fee - PAYE</td>
+              <td class="service-cell">Monthly PAYE Returns</td>
               <td class="amount-cell">K100 / Emp</td>
             </tr>
             <tr>
@@ -1189,17 +1218,17 @@
 
             <!-- NAPSA -->
             <tr>
-              <td class="category-cell" rowspan="3">NAPSA</td>
+              <td class="category-cell" rowspan="3">NAPSA Reg</td>
               <td class="service-cell">Personal</td>
-              <td class="amount-cell">K500</td>
+              <td class="amount-cell">K200</td>
             </tr>
             <tr>
               <td class="service-cell">Monthly Service Fee</td>
               <td class="amount-cell">K100 / Emp</td>
             </tr>
             <tr>
-              <td class="service-cell">Personal Account Upgrade</td>
-              <td class="amount-cell">K250</td>
+              <td class="service-cell">Company </td>
+              <td class="amount-cell">K1000</td>
             </tr>
 
             <!-- ZPPA -->
@@ -1209,7 +1238,7 @@
               <td class="amount-cell">K900</td>
             </tr>
             <tr>
-              <td class="service-cell">Renewal</td>
+              <td class="service-cell">Certificate Renewal</td>
               <td class="amount-cell">K600</td>
             </tr>
 
