@@ -210,6 +210,35 @@
       color: var(--text-muted);
     }
 
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hero-book-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
+      color: white;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 102, 255, 0.4);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .hero-book-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px var(--primary-glow);
+    }
+
     /* General Sections */
     section {
       padding: 100px 8%;
@@ -455,7 +484,7 @@
       box-shadow: 0 6px 20px var(--primary-glow);
     }
 
-    /* Modal Styles - Fully Responsive & Left Aligned Text */
+    /* Modal Styles - Perfectly Fitted No Horizontal Scrolling */
     .modal {
       position: fixed;
       top: 0;
@@ -471,7 +500,7 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
-      padding: 10px;
+      padding: 8px;
     }
 
     .modal.active {
@@ -482,17 +511,18 @@
     .modal-content {
       background: var(--card-bg);
       width: 100%;
-      max-width: 650px;
-      max-height: 92vh;
+      max-width: 620px;
+      max-height: 94vh;
       overflow-y: auto;
-      border-radius: 20px;
-      padding: 25px 20px;
+      overflow-x: hidden;
+      border-radius: 16px;
+      padding: 18px 14px;
       position: relative;
       border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
       transform: translateY(-20px) scale(0.95);
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      text-align: left; /* Left align everything inside modal */
+      text-align: left;
     }
 
     .modal.active .modal-content {
@@ -501,7 +531,7 @@
 
     /* Custom Scrollbar for Modal */
     .modal-content::-webkit-scrollbar {
-      width: 5px;
+      width: 4px;
     }
     .modal-content::-webkit-scrollbar-track {
       background: rgba(255,255,255,0.02);
@@ -514,9 +544,9 @@
 
     .close-btn {
       position: absolute;
-      top: 12px;
-      right: 15px;
-      font-size: 28px;
+      top: 10px;
+      right: 12px;
+      font-size: 26px;
       color: var(--text-muted);
       cursor: pointer;
       transition: color 0.3s ease;
@@ -528,24 +558,24 @@
     }
 
     .modal-brand-header {
-      margin-bottom: 20px;
-      padding-bottom: 15px;
+      margin-bottom: 15px;
+      padding-bottom: 12px;
       border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
       text-align: left;
     }
 
     .modal-brand-header h3 {
       color: var(--primary);
-      margin-bottom: 8px;
-      font-size: 18px;
+      margin-bottom: 6px;
+      font-size: 16px;
       font-weight: 800;
     }
 
     .modal-contact-line {
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      font-size: 12px;
+      gap: 3px;
+      font-size: 11px;
       color: var(--text-muted);
       text-align: left;
     }
@@ -555,41 +585,42 @@
     }
 
     .modal h2 {
-      margin-bottom: 20px;
-      font-size: 18px;
+      margin-bottom: 15px;
+      font-size: 16px;
       color: #fff;
       text-align: left;
     }
 
     .table-responsive-wrapper {
       width: 100%;
-      overflow-x: auto;
-      margin-bottom: 20px;
-      border-radius: 10px;
+      overflow-x: hidden;
+      margin-bottom: 15px;
+      border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.05);
-      -webkit-overflow-scrolling: touch;
     }
 
     .price-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 12.5px;
-      white-space: nowrap;
+      font-size: 11.5px;
+      table-layout: fixed;
     }
 
     .price-table th {
       background: rgba(0, 102, 255, 0.15);
       color: var(--accent-cyan);
-      padding: 10px 12px;
+      padding: 8px 6px;
       text-align: left;
       font-weight: 700;
+      word-wrap: break-word;
     }
 
     .price-table td {
-      padding: 10px 12px;
+      padding: 8px 6px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       color: var(--text-main);
       text-align: left;
+      word-wrap: break-word;
     }
 
     .price-table tr:last-child td {
@@ -602,32 +633,38 @@
       vertical-align: middle;
       background: rgba(255, 255, 255, 0.02);
       border-right: 1px solid rgba(255, 255, 255, 0.05);
+      width: 25%;
+    }
+
+    .service-cell {
+      width: 50%;
     }
 
     .amount-cell {
       text-align: right;
       font-weight: 600;
       color: #25D366;
+      width: 25%;
     }
 
     .note-box {
       background: rgba(0, 210, 255, 0.08);
-      border-left: 4px solid var(--accent-cyan);
-      padding: 12px;
-      border-radius: 0 8px 8px 0;
-      margin-bottom: 20px;
+      border-left: 3px solid var(--accent-cyan);
+      padding: 10px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 15px;
       text-align: left;
     }
 
     .note-title {
       font-weight: 700;
       color: var(--accent-cyan);
-      margin-bottom: 4px;
-      font-size: 13px;
+      margin-bottom: 3px;
+      font-size: 12px;
     }
 
     .note-text {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-muted);
       line-height: 1.4;
     }
@@ -640,12 +677,12 @@
       background: linear-gradient(135deg, var(--accent-cyan), var(--primary));
       color: white;
       text-decoration: none;
-      padding: 12px;
-      border-radius: 10px;
+      padding: 10px;
+      border-radius: 8px;
       font-weight: 600;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       transition: all 0.3s ease;
-      font-size: 13.5px;
+      font-size: 12.5px;
     }
 
     .btn-dl:hover {
@@ -655,9 +692,70 @@
 
     .closing-message {
       text-align: left;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-muted);
       font-style: italic;
+    }
+
+    /* Booking Modal Specific Styles */
+    .booking-form-group {
+      margin-bottom: 15px;
+    }
+
+    .booking-form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      margin-bottom: 5px;
+    }
+
+    .booking-form-group input,
+    .booking-form-group select,
+    .booking-form-group textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: white;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .booking-form-group input:focus,
+    .booking-form-group select:focus,
+    .booking-form-group textarea:focus {
+      border-color: var(--accent-cyan);
+    }
+
+    .booking-form-group select option {
+      background: var(--card-bg);
+      color: white;
+    }
+
+    .submit-booking-btn {
+      width: 100%;
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .submit-booking-btn:hover {
+      background: #1ebd54;
+      transform: translateY(-2px);
     }
 
     /* Floating Communication Buttons */
@@ -738,6 +836,7 @@
     @media(min-width: 768px) {
       .modal-content {
         padding: 35px;
+        max-width: 650px;
       }
       .modal-brand-header h3 {
         font-size: 22px;
@@ -753,16 +852,16 @@
       }
       .price-table {
         font-size: 14px;
-        white-space: normal;
       }
       .price-table th, .price-table td {
-        padding: 14px;
+        padding: 14px 10px;
       }
       .note-text {
         font-size: 13px;
       }
       .btn-dl {
         font-size: 15px;
+        padding: 14px;
       }
       .closing-message {
         font-size: 13px;
@@ -817,6 +916,11 @@
         tax returns, compliance services, websites, branding,
         company profiles, and world-class digital solutions.
       </p>
+      <div class="hero-buttons">
+        <button class="hero-book-btn" onclick="toggleBookingModal(true)">
+          <i class="fas fa-calendar-check"></i> Book a Service
+        </button>
+      </div>
     </div>
   </section>
 
@@ -1008,15 +1112,19 @@
         </a>
       </div>
       
-      <!-- Modified Button triggers the Modal -->
-      <button onclick="toggleModal(true)" class="btn-price-list">
-        <i class="fas fa-eye"></i> View Price List
-      </button>
+      <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+        <button onclick="toggleModal(true)" class="btn-price-list">
+          <i class="fas fa-eye"></i> View Price List
+        </button>
+        <button onclick="toggleBookingModal(true)" class="btn-price-list" style="background: linear-gradient(135deg, var(--accent-cyan), var(--primary));">
+          <i class="fas fa-calendar-check"></i> Book a Service
+        </button>
+      </div>
     </div>
   </section>
 
-  <!-- MODAL OVERLAY -->
-  <div id="priceModal" class="modal" onclick="closeModalOutside(event)">
+  <!-- PRICE LIST MODAL -->
+  <div id="priceModal" class="modal" onclick="closeModalOutside(event, 'priceModal')">
     <div class="modal-content">
       <span class="close-btn" onclick="toggleModal(false)">&times;</span>
 
@@ -1157,6 +1265,91 @@
     </div>
   </div>
 
+  <!-- BOOKING MODAL -->
+  <div id="bookingModal" class="modal" onclick="closeModalOutside(event, 'bookingModal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="toggleBookingModal(false)">&times;</span>
+
+      <div class="modal-brand-header">
+        <h3>LISOTECH INNOVATIONS</h3>
+        <div class="modal-contact-line">
+          <span><strong>Quick Booking Service</strong></span>
+        </div>
+      </div>
+
+      <h2>Book a Service</h2>
+
+      <form id="bookingForm" onsubmit="submitBooking(event)">
+        <div class="booking-form-group">
+          <label for="clientName">Full Name</label>
+          <input type="text" id="clientName" required placeholder="Enter your full name">
+        </div>
+
+        <div class="booking-form-group">
+          <label for="clientPhone">Phone Number / WhatsApp</label>
+          <input type="tel" id="clientPhone" required placeholder="e.g. +260974101130">
+        </div>
+
+        <div class="booking-form-group">
+          <label for="serviceSelect">Select Service Option</label>
+          <select id="serviceSelect" required>
+            <option value="" disabled selected>-- Choose from all available services --</option>
+            <optgroup label="PACRA Services">
+              <option value="PACRA: Business Name (K1,000)">PACRA: Business Name (K1,000)</option>
+              <option value="PACRA: Partnership (K2,000)">PACRA: Partnership (K2,000)</option>
+              <option value="PACRA: Limited Company (K3,500)">PACRA: Limited Company (K3,500)</option>
+              <option value="PACRA: Annual Returns Service Fee (K250)">PACRA: Annual Returns Service Fee (K250)</option>
+            </optgroup>
+            <optgroup label="ZRA Services">
+              <option value="ZRA: Registration (K500)">ZRA: Registration (K500)</option>
+              <option value="ZRA: Monthly Service Fee (TOT) (K200)">ZRA: Monthly Service Fee (TOT) (K200)</option>
+              <option value="ZRA: Monthly Service Fee - PAYE (K100 / Emp)">ZRA: Monthly Service Fee - PAYE (K100 / Emp)</option>
+              <option value="ZRA: Company Registration (K1,000)">ZRA: Company Registration (K1,000)</option>
+            </optgroup>
+            <optgroup label="NAPSA Services">
+              <option value="NAPSA: Personal (K500)">NAPSA: Personal (K500)</option>
+              <option value="NAPSA: Monthly Service Fee (K100 / Emp)">NAPSA: Monthly Service Fee (K100 / Emp)</option>
+              <option value="NAPSA: Personal Account Upgrade (K250)">NAPSA: Personal Account Upgrade (K250)</option>
+            </optgroup>
+            <optgroup label="ZPPA Services">
+              <option value="ZPPA: New Registration (K900)">ZPPA: New Registration (K900)</option>
+              <option value="ZPPA: Renewal (K600)">ZPPA: Renewal (K600)</option>
+            </optgroup>
+            <optgroup label="Workers Compensation">
+              <option value="Workers Comp: New Registration (K1,000)">Workers Comp: New Registration (K1,000)</option>
+              <option value="Workers Comp: Renewal (K1,000)">Workers Comp: Renewal (K1,000)</option>
+            </optgroup>
+            <optgroup label="NHIMA Services">
+              <option value="NHIMA: Company Reg (K1,000)">NHIMA: Company Reg (K1,000)</option>
+              <option value="NHIMA: Personal Reg (K200)">NHIMA: Personal Reg (K200)</option>
+              <option value="NHIMA: Monthly Returns (K50 / Emp)">NHIMA: Monthly Returns (K50 / Emp)</option>
+            </optgroup>
+            <optgroup label="Digital & Technical Solutions">
+              <option value="Compliance Services">Compliance Services</option>
+              <option value="Company Profiles">Company Profiles</option>
+              <option value="Business Websites">Business Websites</option>
+              <option value="Premium Graphics Design">Premium Graphics Design</option>
+              <option value="Social Media Management">Social Media Management</option>
+              <option value="Online Music Distribution (K650)">Online Music Distribution (K650)</option>
+              <option value="Computer OS Installation & Activation">Computer OS Installation & Activation</option>
+              <option value="Microsoft Office Suite Services">Microsoft Office Suite Services</option>
+              <option value="System Optimization & Utilities">System Optimization & Utilities</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="booking-form-group">
+          <label for="clientNotes">Additional Details / Instructions (Optional)</label>
+          <textarea id="clientNotes" rows="3" placeholder="Provide any specific context or details about your request"></textarea>
+        </div>
+
+        <button type="submit" class="submit-booking-btn">
+          <i class="fab fa-whatsapp"></i> Send Booking via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
   <footer id="animated-footer">
     <p>LISOTECH || All Rights Reserved</p>
     <marquee scrollamount="4">Designed by LISOTECH INNOVATIONS | Call or WhatsApp: +260974101130</marquee>
@@ -1214,11 +1407,44 @@
       }
     }
 
-    function closeModalOutside(event) {
-      const modalContent = document.querySelector('.modal-content');
-      if (!modalContent.contains(event.target)) {
-        toggleModal(false);
+    function toggleBookingModal(show) {
+      const modal = document.getElementById("bookingModal");
+      if (show) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      } else {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
       }
+    }
+
+    function closeModalOutside(event, modalId) {
+      const modal = document.getElementById(modalId);
+      const modalContent = modal.querySelector('.modal-content');
+      if (!modalContent.contains(event.target)) {
+        if (modalId === 'priceModal') toggleModal(false);
+        if (modalId === 'bookingModal') toggleBookingModal(false);
+      }
+    }
+
+    function submitBooking(event) {
+      event.preventDefault();
+      const name = document.getElementById("clientName").value.trim();
+      const phone = document.getElementById("clientPhone").value.trim();
+      const service = document.getElementById("serviceSelect").value;
+      const notes = document.getElementById("clientNotes").value.trim();
+
+      let message = `Hello LISOTECH INNOVATIONS, I would like to book a service.%0A%0A`;
+      message += `*Name:* ${encodeURIComponent(name)}%0A`;
+      message += `*Phone:* ${encodeURIComponent(phone)}%0A`;
+      message += `*Selected Service:* ${encodeURIComponent(service)}%0A`;
+      if (notes) {
+        message += `*Additional Notes:* ${encodeURIComponent(notes)}%0A`;
+      }
+
+      const whatsappUrl = `https://wa.me/260974101130?text=${message}`;
+      window.open(whatsappUrl, '_blank');
+      toggleBookingModal(false);
     }
 
     /* Footer Animations */
