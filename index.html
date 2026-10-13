@@ -1238,7 +1238,7 @@
                 <img src="logo.png" alt="LISOTECH INNOVATIONS Logo">
             </div>
             <div>
-                2026<h2>LISOTECH INNOVATIONS</h2>
+                <h2>LISOTECH INNOVATIONS</h2>
                 <div style="font-size: 10px; color: #38bdf8; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase;"><marquee>Company Registration & Compliance Services</marquee></div>
             </div>
         </div>
@@ -1511,7 +1511,7 @@
                 <div class="package-card">
                     <div>
                         <div class="package-badge">STARTER</div>
-                        <div class="package-price">K1,700 <span>once-off</span></div>
+                        <div class="package-price">K1,800 <span>once-off</span></div>
                         <p class="package-desc">For businesses just getting their identity off the ground.</p>
                         <ul class="package-features">
                             <li><i class="fa-solid fa-check"></i> Logo Design</li>
@@ -1521,7 +1521,6 @@
                         </ul>
                     </div>
                     <div class="package-actions">
-                        <!-- LINKED TO PAYZA CHECKOUT -->
                         <a href="https://payzaapi.co.ke/pay/470704b6b9310962" target="_blank" class="btn-pay-now">
                             <i class="fa-solid fa-credit-card"></i> Pay Now
                         </a>
@@ -1543,9 +1542,9 @@
                         </ul>
                     </div>
                     <div class="package-actions">
-                        <button class="btn-pay-now btn-pay-blue" onclick="inquirePackage('Business Growth Package (K3,500)')">
+                        <a href="https://payzaapi.co.ke/pay/470704b6b9310962" target="_blank" class="btn-pay-now btn-pay-blue">
                             <i class="fa-solid fa-credit-card"></i> Pay Now
-                        </button>
+                        </a>
                         <a href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20would%20like%20to%20inquire%20about%20the%20Business%20Growth%20Package%20(K3,500)." target="_blank" class="btn-inquire-wa">Inquire via WhatsApp</a>
                     </div>
                 </div>
@@ -1564,9 +1563,9 @@
                         </ul>
                     </div>
                     <div class="package-actions">
-                        <button class="btn-pay-now" onclick="inquirePackage('Premium Package (K5,000)')">
+                        <a href="https://payzaapi.co.ke/pay/470704b6b9310962" target="_blank" class="btn-pay-now">
                             <i class="fa-solid fa-credit-card"></i> Pay Now
-                        </button>
+                        </a>
                         <a href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20would%20like%20to%20inquire%20about%20the%20Premium%20Package%20(K5,000)." target="_blank" class="btn-inquire-wa">Inquire via WhatsApp</a>
                     </div>
                 </div>
@@ -2070,13 +2069,6 @@
             
             let message = `Hello Lisotech Innovations,%0A%0AMy name is *${customerName}*. I would like to register/request the following services:${selectedServicesText}%0A%0APlease guide me on the next steps. Thank you!`;
             
-            let whatsappUrl = `https://wa.me/260974101130?text=${message}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        /* INQUIRE PACKAGE VIA WHATSAPP */
-        function inquirePackage(packageName) {
-            let message = `Hello Lisotech Innovations,%0A%0AI would like to pay/inquire for the *${packageName}*. Please share the payment details and process to get started.`;
             let whatsappUrl = `https://wa.me/260974101130?text=${message}`;
             window.open(whatsappUrl, '_blank');
         }
