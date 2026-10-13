@@ -353,6 +353,168 @@
             border-left-color: #ffffff;
         }
 
+        /* SERVICE PACKAGES SECTION STYLING */
+        .packages-container {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #1e1b4b;
+        }
+
+        .packages-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .packages-header h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .packages-header p {
+            color: #94a3b8;
+            font-size: 15px;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .package-card {
+            background: #0d0c24;
+            border: 1px solid #1e1b4b;
+            border-radius: 16px;
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
+        }
+
+        .package-card.highlighted {
+            border: 2px solid #2563eb;
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.25);
+        }
+
+        .package-badge {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .package-price {
+            font-size: 38px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .package-price span {
+            font-size: 13px;
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        .package-desc {
+            font-size: 13.5px;
+            color: #cbd5e1;
+            margin-bottom: 25px;
+            min-height: 40px;
+            line-height: 1.5;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .package-features li {
+            font-size: 14px;
+            color: #e2e8f0;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .package-features li i {
+            color: #38bdf8;
+            font-size: 14px;
+        }
+
+        .package-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-pay-now {
+            background: #10b981;
+            color: #ffffff;
+            font-weight: 600;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-pay-now:hover {
+            background: #059669;
+        }
+
+        .btn-pay-blue {
+            background: #2563eb;
+        }
+
+        .btn-pay-blue:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-inquire-wa {
+            background: transparent;
+            border: 1px solid #1e1b4b;
+            color: #ffffff;
+            font-weight: 500;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+            display: block;
+        }
+
+        .btn-inquire-wa:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.05);
+        }
+
         /* MODAL (PRICE LIST & BOOKING POPUP) */
         .modal {
             display: none;
@@ -1060,6 +1222,10 @@
                 height: 36px;
                 font-size: 14px;
             }
+
+            .packages-header h3 {
+                font-size: 26px;
+            }
         }
     </style>
 </head>
@@ -1331,6 +1497,79 @@
         <!-- CENTERED BUTTON FOR PRICE LIST -->
         <div class="btn-center-wrapper">
             <button class="btn" onclick="toggleModal(true)">View Pricing</button>
+        </div>
+
+        <!-- SERVICE PACKAGES SECTION (ADDED FROM SCREENSHOT) -->
+        <div class="packages-container">
+            <div class="packages-header">
+                <h3>Service packages</h3>
+                <p>Choose the right bundle to scale your business operations</p>
+            </div>
+
+            <div class="packages-grid">
+                <!-- STARTER PACKAGE -->
+                <div class="package-card">
+                    <div>
+                        <div class="package-badge">STARTER</div>
+                        <div class="package-price">K1,700 <span>once-off</span></div>
+                        <p class="package-desc">For businesses just getting their identity off the ground.</p>
+                        <ul class="package-features">
+                            <li><i class="fa-solid fa-check"></i> Logo Design</li>
+                            <li><i class="fa-solid fa-check"></i> Business Card Design</li>
+                            <li><i class="fa-solid fa-check"></i> Flyer Design</li>
+                            <li><i class="fa-solid fa-check"></i> 10-Pages Website</li>
+                        </ul>
+                    </div>
+                    <div class="package-actions">
+                        <button class="btn-pay-now" onclick="inquirePackage('Starter Package (K1,700)')">
+                            <i class="fa-solid fa-credit-card"></i> Pay Now
+                        </button>
+                        <a href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20would%20like%20to%20inquire%20about%20the%20Starter%20Package%20(K1,700)." target="_blank" class="btn-inquire-wa">Inquire via WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- BUSINESS GROWTH PACKAGE -->
+                <div class="package-card highlighted">
+                    <div>
+                        <div class="package-badge" style="color: #38bdf8;">BUSINESS GROWTH</div>
+                        <div class="package-price">K3,500 <span>once-off</span></div>
+                        <p class="package-desc">Our most popular package for growing businesses.</p>
+                        <ul class="package-features">
+                            <li><i class="fa-solid fa-check"></i> Logo & Brand Identity</li>
+                            <li><i class="fa-solid fa-check"></i> Company Profile</li>
+                            <li><i class="fa-solid fa-check"></i> Professional Website</li>
+                            <li><i class="fa-solid fa-check"></i> 10 Social Media Designs</li>
+                        </ul>
+                    </div>
+                    <div class="package-actions">
+                        <button class="btn-pay-now btn-pay-blue" onclick="inquirePackage('Business Growth Package (K3,500)')">
+                            <i class="fa-solid fa-credit-card"></i> Pay Now
+                        </button>
+                        <a href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20would%20like%20to%20inquire%20about%20the%20Business%20Growth%20Package%20(K3,500)." target="_blank" class="btn-inquire-wa">Inquire via WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- PREMIUM PACKAGE -->
+                <div class="package-card">
+                    <div>
+                        <div class="package-badge">PREMIUM</div>
+                        <div class="package-price">K5,000 <span>once-off</span></div>
+                        <p class="package-desc">Full-service brand build for established businesses.</p>
+                        <ul class="package-features">
+                            <li><i class="fa-solid fa-check"></i> Full Brand Identity</li>
+                            <li><i class="fa-solid fa-check"></i> Corporate Website</li>
+                            <li><i class="fa-solid fa-check"></i> Photography & Content</li>
+                            <li><i class="fa-solid fa-check"></i> Marketing Strategy</li>
+                        </ul>
+                    </div>
+                    <div class="package-actions">
+                        <button class="btn-pay-now" onclick="inquirePackage('Premium Package (K5,000)')">
+                            <i class="fa-solid fa-credit-card"></i> Pay Now
+                        </button>
+                        <a href="https://wa.me/260974101130?text=Hello%20Lisotech%20Innovations,%20I%20would%20like%20to%20inquire%20about%20the%20Premium%20Package%20(K5,000)." target="_blank" class="btn-inquire-wa">Inquire via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1830,6 +2069,13 @@
             
             let message = `Hello Lisotech Innovations,%0A%0AMy name is *${customerName}*. I would like to register/request the following services:${selectedServicesText}%0A%0APlease guide me on the next steps. Thank you!`;
             
+            let whatsappUrl = `https://wa.me/260974101130?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        /* INQUIRE PACKAGE VIA WHATSAPP */
+        function inquirePackage(packageName) {
+            let message = `Hello Lisotech Innovations,%0A%0AI would like to pay/inquire for the *${packageName}*. Please share the payment details and process to get started.`;
             let whatsappUrl = `https://wa.me/260974101130?text=${message}`;
             window.open(whatsappUrl, '_blank');
         }
